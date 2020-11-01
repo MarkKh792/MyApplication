@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Работа ЖД вокзала</string>
+    <string name="button2">Добавить в БД</string>
+    <string name="button3">Удалить</string>
+    <string name="button5">Войти</string>
+    <string name="button6">Посмотреть расписание</string>
+    //календарь
+    <string name="textView1">Войти</string>
+    <string name="textView2">Выберите дату</string>
+    //календарь
+    <string name="button7">Новый региональный билет</string>
+    //кассир
+    <string name="button8">Новый международный билет</string>
+    <string name="button9">Смотреть базу данных</string>
+    <string name="textView3">ДОБАВИТЬ</string>
+    <string name="button10">Добавить</string>
+    <string name="add_button">Добавить</string>
+    <string name="View_Button">Просмотреть</string>
+    <string name="header">Список пуст</string>
+
+    <string name="textView4">ДОБАВИТЬ</string>
+    //Диспетчер
+    <string name="button11">Расписание</string>
+    <string name="button12">Грузовой состав</string>
+    <string name="radioButton1">Региональные билеты</string>
+    <string name="radioButton2">Международные билеты</string>
+    //Вывод инф-ии по региональным билетам
+    <string name="text1">Номер</string>
+    <string name="text2">Класс вагона</string>
+    <string name="text3">Номер поезда</string>
+    <string name="text4">Льгота</string>
+    <string name="text5">Стоимость</string>
+</resources>
