@@ -54,6 +54,18 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_ChVagon = "Vagonov";
     private static final String COL_ChMest = "Mest";
 
+    static final String TABLECARG = "CargoTrains"; //таблица с груз составамм
+    private static final String COL_CaTrain = "Train";
+    private static final String COL_CaWay = "Way";
+    private static final String COL_CaDay = "Day";
+    private static final String COL_CaPribil = "Pribil_v";
+    private static final String COL_CaYedet = "Yedet_v";
+    private static final String COL_Cargo = "Cargo";
+    private static final String COL_Weight = "Weight";
+    private static final String COL_Price = "Price";
+    private static final String COL_Add = "Dobavleno";
+    private static final String COL_Addnt = "Ybrano";
+
         MyDatabaseHelper(@Nullable Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
             this.context = context;
@@ -94,6 +106,19 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     COL_ChVagon + " INTEGER, " +
                     COL_ChMest + " INTEGER);";
             db.execSQL(query2);
+
+            String query3 = "CREATE TABLE " + TABLECARG +
+                    " (" + COL_CaTrain + " STRING PRIMARY KEY, " +
+                    COL_CaWay + " STRING, " +
+                    COL_CaDay + " INTEGER, " +
+                    COL_CaPribil + " STRING, " +
+                    COL_CaYedet + " STRING, " +
+                    COL_Cargo + " STRING, " +
+                    COL_Weight + " INTEGER, " +
+                    COL_Price + " INTEGER, " +
+                    COL_Add + " INTEGER, " +
+                    COL_Addnt + " INTEGER);";
+            db.execSQL(query3);
         }
 
 
@@ -112,6 +137,8 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLEOUT);
         onCreate(db);
         db.execSQL("DROP TABLE IF EXISTS " + TABLECHED);
+        onCreate(db);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLECARG);
         onCreate(db);
     }
 
@@ -172,6 +199,29 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COL_ChVagon, VagonCh);
         cv.put(COL_ChMest, MestCh);
         long result = db.insert(TABLECHED,null, cv);
+        if(result == -1){
+            Toast.makeText(context, "Ошибка", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(context, "Добавлено", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void addCargoinfo(String TrainCa, String WayCa, int DayCa, String PribilCa, String YedetCa, String CargoCa, int WeightCa,  int PriceCa, int AddCa, int AddntCa){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COL_CaTrain, TrainCa);
+        cv.put(COL_CaWay, WayCa);
+        cv.put(COL_CaDay, DayCa);
+        cv.put(COL_CaPribil, PribilCa);
+        cv.put(COL_CaYedet, YedetCa);
+        cv.put(COL_Cargo, CargoCa);
+        cv.put(COL_Weight, WeightCa);
+        cv.put(COL_Price, PriceCa);
+        cv.put(COL_Add, AddCa);
+        cv.put(COL_Addnt, AddntCa);
+        long result = db.insert(TABLECARG,null, cv);
         if(result == -1){
             Toast.makeText(context, "Ошибка", Toast.LENGTH_SHORT).show();
         }
