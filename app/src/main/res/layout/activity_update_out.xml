@@ -4,173 +4,167 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewOutsideTicket">
+    tools:context=".UpdateOut">
 
     <EditText
-        android:id="@+id/PersonName2"
+        android:id="@+id/UPPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="101dp"
         android:ems="10"
-        android:hint="Фамилия"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PersonName" />
-
-    <EditText
-        android:id="@+id/PersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="101dp"
-        android:ems="10"
-        android:hint="Имя"
-        android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/WagonClass"
+        android:id="@+id/UPPersonName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="101dp"
         android:ems="10"
-        android:hint="Класс вагона"
         android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TicketOutside" />
+        app:layout_constraintTop_toBottomOf="@+id/UPPersonName" />
 
     <EditText
-        android:id="@+id/Wagon"
-        android:layout_width="66dp"
-        android:layout_height="45dp"
+        android:id="@+id/UPPersonName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="142dp"
-        android:ems="10"
-        android:hint="Вагон"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WagonClass"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/Seat"
-        android:layout_width="66dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="101dp"
         android:ems="10"
-        android:hint="Место"
-        android:inputType="number"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UPPersonName2" />
+
+    <EditText
+        android:id="@+id/UPPassport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="101dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UPPersonName3" />
+
+    <EditText
+        android:id="@+id/UPTrainOutside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="101dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UPPassport" />
+
+    <EditText
+        android:id="@+id/UPTicketOutside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="101dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UPTrainOutside" />
+
+    <EditText
+        android:id="@+id/UPWagonClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="101dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UPTicketOutside" />
+
+    <EditText
+        android:id="@+id/UPWagon"
+        android:layout_width="80dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UPWagonClass" />
+
+    <EditText
+        android:id="@+id/UPSeat"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="101dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/Wagon"
-        app:layout_constraintTop_toBottomOf="@+id/WagonClass" />
+        app:layout_constraintStart_toEndOf="@+id/UPWagon"
+        app:layout_constraintTop_toBottomOf="@+id/UPWagonClass" />
 
     <EditText
-        android:id="@+id/TicketOutside"
+        android:id="@+id/UPPriceOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="101dp"
         android:ems="10"
-        android:hint="Номер билета"
         android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TrainOutside" />
-
-    <EditText
-        android:id="@+id/PersonName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="101dp"
-        android:ems="10"
-        android:hint="Отчество"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PersonName2" />
-
-    <EditText
-        android:id="@+id/TrainOutside"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="101dp"
-        android:ems="10"
-        android:hint="Поезд"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Passport" />
-
-    <EditText
-        android:id="@+id/Passport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="101dp"
-        android:ems="10"
-        android:hint="Номер паспорта"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/UPSeat" />
 
     <Button
-        android:id="@+id/add_Out"
-        android:layout_width="157dp"
+        android:id="@+id/UPOut"
+        android:layout_width="208dp"
         android:layout_height="49dp"
-        android:layout_marginStart="130dp"
+        android:layout_marginStart="103dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="124dp"
-        android:layout_marginBottom="164dp"
-        android:text="@string/button10"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="100dp"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PriceOut" />
+        app:layout_constraintTop_toBottomOf="@+id/UPPriceOut" />
 
     <Button
-        android:id="@+id/ViewOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="162dp"
-        android:text="@string/View_Button"
-        android:onClick="ViewOut"
+        android:id="@+id/DeleteOut"
+        android:layout_width="209dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="100dp"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_Out" />
-
-    <EditText
-        android:id="@+id/PriceOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="Стоимость"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Wagon" />
-
+        app:layout_constraintTop_toBottomOf="@+id/UPOut" />
 </androidx.constraintlayout.widget.ConstraintLayout>

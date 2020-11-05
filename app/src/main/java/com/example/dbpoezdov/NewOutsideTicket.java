@@ -1,5 +1,6 @@
 package com.example.dbpoezdov;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,7 +9,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewOutsideTicket extends AppCompatActivity {
-    EditText PersonName, PersonName2, PersonName3, Passport, TrainOutside, TicketOutside, WagonClass, Wagon, Seat;
+    EditText PersonName, PersonName2, PersonName3, Passport, TrainOutside, TicketOutside, WagonClass, Wagon, Seat, Price;
     Button add_Out;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class NewOutsideTicket extends AppCompatActivity {
         WagonClass = findViewById(R.id.WagonClass);
         Wagon = findViewById(R.id.Wagon);
         Seat = findViewById(R.id.Seat);
+        Price = findViewById(R.id.PriceOut);
         add_Out = findViewById(R.id.add_Out);
         add_Out.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,10 +38,17 @@ public class NewOutsideTicket extends AppCompatActivity {
                         TicketOutside.getText().toString().trim(),
                         WagonClass.getText().toString().trim(),
                         Integer.valueOf(Wagon.getText().toString().trim()),
-                        Integer.valueOf(Seat.getText().toString().trim()));
+                        Integer.valueOf(Seat.getText().toString().trim()),
+                        Integer.valueOf(Price.getText().toString().trim()));
             }
         });
-    }}
+    }
+
+    public void ViewOut(View view) {
+        Intent intent = new Intent(NewOutsideTicket.this, ViewTickets2.class);
+        startActivity(intent);
+    }
+}
     /*Button button10;
     EditText FName, Lname, Sname, NPass, TraiN, NOutTicket, WagClass, NWag, Seat;
 

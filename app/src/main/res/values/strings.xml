@@ -25,9 +25,21 @@
     <string name="radioButton1">Региональные билеты</string>
     <string name="radioButton2">Международные билеты</string>
     //Вывод инф-ии по региональным билетам
-    <string name="text1">Номер</string>
+    <string name="text1">Билет</string>
     <string name="text2">Класс вагона</string>
     <string name="text3">Номер поезда</string>
     <string name="text4">Льгота</string>
     <string name="text5">Стоимость</string>
+    //Вывод информации по международным билетам
+    <string name="textView">Билет</string>
+    <string name="textView7">Имя</string>
+    <string name="textView10">Фамилия</string>
+    <string name="textView11">Отчество</string>
+    <string name="textView13">Паспорт</string>
+    <string name="textView9">Поезд</string>
+    <string name="textView12">Класс вагона</string>
+    <string name="textView14">Вагон</string>
+    <string name="textView15">Место</string>
+    <string name="textView16">Стоимость</string>
+
 </resources>

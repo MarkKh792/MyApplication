@@ -41,6 +41,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLWagClass = "Out_WagClass";
     private static final String COLNWag = "Out_NWag";
     private static final String COLSeat = "Out_Seat";
+    private static final String COLPriceOut = "Out_Price";
 
     static final String TABLECHED = "Chedule"; //таблица с расписанием
     private static final String COL_ChTrain = "Train";
@@ -104,7 +105,8 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     COL_ChPut + " INTEGER, " +
                     COL_ChPlatform + " INTEGER, " +
                     COL_ChVagon + " INTEGER, " +
-                    COL_ChMest + " INTEGER);";
+                    COL_ChMest + " INTEGER, " +
+                    COLPriceOut + " INTEGER);";
             db.execSQL(query2);
 
             String query3 = "CREATE TABLE " + TABLECARG +
@@ -162,7 +164,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    void addOutinfo(String name1, String name2, String name3, String Passp, String Train, String Ticket, String Class, int NumWag, int OutSeat){
+    void addOutinfo(String name1, String name2, String name3, String Passp, String Train, String Ticket, String Class, int NumWag, int OutSeat, int OutPrice){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -175,6 +177,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLWagClass, Class);
         cv.put(COLNWag, NumWag);
         cv.put(COLSeat, OutSeat);
+        cv.put(COLPriceOut, OutPrice);
         long result = db.insert(TABLEOUT,null, cv);
         if(result == -1){
             Toast.makeText(context, "Ошибка", Toast.LENGTH_SHORT).show();
@@ -241,6 +244,17 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    Cursor readAllDataOUT(){
+        String query = "SELECT * FROM " + TABLEOUT;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
     void updateREGdata(String RegID, String classREG, String TrainNum, String PrevREG, String PriceREG){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -260,6 +274,39 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     void deleteOneREGrow(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLEOUT, "_id=?", new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void updateOutData(String name1, String name2, String name3, String Passp, String Train, String Ticket, String Class, String NumWag, String OutSeat, String OutPrice){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLFname, name1);
+        cv.put(COLLname, name2);
+        cv.put(COLSname, name3);
+        cv.put(COLNPass, Passp);
+        cv.put(COLTraiN, Train);
+        cv.put(COLNOutTicket, Ticket);
+        cv.put(COLWagClass, Class);
+        cv.put(COLNWag, NumWag);
+        cv.put(COLSeat, OutSeat);
+        cv.put(COLPriceOut, OutPrice);
+
+        long result = db.update(TABLEOUT, cv, "_id=?", new String[]{Ticket});
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    void deleteOneOutRow(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLEOUT, "_id=?", new String[]{row_id});
         if(result == -1){

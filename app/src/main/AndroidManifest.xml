@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".UpdateOut"></activity>
         <activity android:name=".UpdateReg" />
         <activity android:name=".ViewTickets1" />
         <activity android:name=".AllTickets" />
