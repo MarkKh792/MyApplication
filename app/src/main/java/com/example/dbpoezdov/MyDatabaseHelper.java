@@ -92,7 +92,8 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     COLNOutTicket + " STRING, " +
                     COLWagClass + " TEXT, " +
                     COLNWag + " INTEGER, " +
-                    COLSeat + " INTEGER);";
+                    COLSeat + " INTEGER, " +
+                    COLPriceOut + " INTEGER);";
             db.execSQL(query1);
 
             String query2 = "CREATE TABLE " + TABLECHED +
@@ -105,8 +106,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     COL_ChPut + " INTEGER, " +
                     COL_ChPlatform + " INTEGER, " +
                     COL_ChVagon + " INTEGER, " +
-                    COL_ChMest + " INTEGER, " +
-                    COLPriceOut + " INTEGER);";
+                    COL_ChMest + " INTEGER);";
             db.execSQL(query2);
 
             String query3 = "CREATE TABLE " + TABLECARG +
@@ -163,7 +163,6 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-
     void addOutinfo(String name1, String name2, String name3, String Passp, String Train, String Ticket, String Class, int NumWag, int OutSeat, int OutPrice){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -186,6 +185,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Добавлено", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     void addCHEDinfo(String TrainCh, String TypeCh, String WayCh, int DayCh, String PribilCh, String YedetCh, int PutCh,  int PlatformCh, int VagonCh, int MestCh){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -273,16 +273,6 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    void deleteOneREGrow(String row_id){
-        SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLEOUT, "_id=?", new String[]{row_id});
-        if(result == -1){
-            Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
-        }
-    }
-
     void updateOutData(String name1, String name2, String name3, String Passp, String Train, String Ticket, String Class, String NumWag, String OutSeat, String OutPrice){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -306,6 +296,16 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    void deleteOneREGrow(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLEREG, "_id=?", new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     void deleteOneOutRow(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLEOUT, "_id=?", new String[]{row_id});
@@ -315,4 +315,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
         }
     }
+
+
+
 }
