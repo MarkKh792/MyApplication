@@ -53,11 +53,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, UpdateReg.class);
-                intent.putExtra("RegID", String.valueOf(RegTicket.get(position)));
-                intent.putExtra("classREG", String.valueOf(WagonClass.get(position)));
-                intent.putExtra("NTrain", String.valueOf(TrainNumb.get(position)));
-                intent.putExtra("PrevREG", String.valueOf(Prevel.get(position)));
-                intent.putExtra("PriceREG", String.valueOf(Price.get(position)));
+                intent.putExtra("RegNum", String.valueOf(RegTicket.get(position)));
+                intent.putExtra("RegClass", String.valueOf(WagonClass.get(position)));
+                intent.putExtra("RegTrn", String.valueOf(TrainNumb.get(position)));
+                intent.putExtra("RegPrv", String.valueOf(Prevel.get(position)));
+                intent.putExtra("RegPrc", String.valueOf(Price.get(position)));
                 activity.startActivityForResult(intent, 1);
             }
         });

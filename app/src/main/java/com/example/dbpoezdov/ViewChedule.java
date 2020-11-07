@@ -1,4 +1,4 @@
-package com.example.dbpoezdov;
+/*package com.example.dbpoezdov;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.Nullable;
@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import android.os.Bundle;
 
-public class ViewTickets1 extends AppCompatActivity {
+public class ViewChedule extends AppCompatActivity {
 
     RecyclerView recyclerView;
     TextView header;
@@ -38,7 +38,7 @@ public class ViewTickets1 extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         header = findViewById(R.id.header);
 
-        myDB = new MyDatabaseHelper(ViewTickets1.this);
+        myDB = new MyDatabaseHelper(ViewChedule.this);
         RegTicket = new ArrayList<>();
         WagonClass = new ArrayList<>();
         TrainNumb = new ArrayList<>();
@@ -54,7 +54,7 @@ public class ViewTickets1 extends AppCompatActivity {
     }
 
     void storeDataInArrays(){
-        Cursor cursor = myDB.readAllDataREG();           //ВНИМАНИЕ НА readAll---
+        Cursor cursor = myDB.readAllDataREG();
         if(cursor.getCount() == 0){
             header.setVisibility(View.VISIBLE);
         }else{
@@ -68,4 +68,4 @@ public class ViewTickets1 extends AppCompatActivity {
             header.setVisibility(View.GONE);
         }
     }
-}
+}*/

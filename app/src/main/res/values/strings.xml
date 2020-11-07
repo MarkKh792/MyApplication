@@ -4,6 +4,8 @@
     <string name="button3">Удалить</string>
     <string name="button5">Войти</string>
     <string name="button6">Посмотреть расписание</string>
+    <string name="update">Обновить</string>
+    <string name="delete">Удалить</string>
     //календарь
     <string name="textView1">Войти</string>
     <string name="textView2">Выберите дату</string>
@@ -24,6 +26,18 @@
     <string name="button12">Грузовой состав</string>
     <string name="radioButton1">Региональные билеты</string>
     <string name="radioButton2">Международные билеты</string>
+    //Вывод информации по грузовым поездам
+    <string name="textView5">Состав</string>
+    <string name="textView8">Маршрут</string>
+    <string name="textView17">День</string>
+    <string name="textView18">Прибытие</string>
+    <string name="textView19">Отправление</string>
+    <string name="textView20">Груз</string>
+    <string name="textView21">Масса груза</string>
+    <string name="textView22">Ценность</string>
+    <string name="textView23">Доб. вагонов</string>
+    <string name="textView24">Отцепл. вагонов</string>
+
     //Вывод инф-ии по региональным билетам
     <string name="text1">Билет</string>
     <string name="text2">Класс вагона</string>

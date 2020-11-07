@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class UpdateReg extends AppCompatActivity {
 
     EditText UPRegNum1, UPRegClass1, UPRegTrn1, UPRregPrev1, UPRegPrice1;
-    Button UpdateREG, DeleteREG;
+    Button UpdateREG_button, DeleteREG_button;
 
     String RegNum, RegClass, RegTrn, RegPrv, RegPrc;
     @Override
@@ -28,14 +28,19 @@ public class UpdateReg extends AppCompatActivity {
         UPRegTrn1 = findViewById(R.id.UPRegTrn);
         UPRregPrev1 = findViewById(R.id.UPRegPrev);
         UPRegPrice1 = findViewById(R.id.UPRegPrice);
-        UpdateREG = findViewById(R.id.UpdateREG);
-        DeleteREG = findViewById(R.id.DeleteREG);
+        UpdateREG_button = findViewById(R.id.UpdateREG_button);
+        DeleteREG_button = findViewById(R.id.DeleteREG_button);
 
         //First we call this
         getAndSetIntentData();
 
+        //Set actionbar title after getAndSetIntentData method
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle(RegNum);
+        }
 
-        UpdateREG.setOnClickListener(new View.OnClickListener() {
+        UpdateREG_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //And only then we call this
@@ -48,7 +53,7 @@ public class UpdateReg extends AppCompatActivity {
                 myDB.updateREGdata(RegNum, RegClass, RegTrn, RegPrv, RegPrc);
             }
         });
-        DeleteREG.setOnClickListener(new View.OnClickListener() {
+        DeleteREG_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 confirmDialog();
@@ -58,13 +63,14 @@ public class UpdateReg extends AppCompatActivity {
 
     void getAndSetIntentData(){
         if(getIntent().hasExtra("RegNum") && getIntent().hasExtra("RegClass") &&
-                getIntent().hasExtra(" RegTrn")){
+                getIntent().hasExtra("RegTrn") && getIntent().hasExtra("RegPrv")&&
+                getIntent().hasExtra("RegPrc")){
             //Getting Data from Intent
             RegNum = getIntent().getStringExtra("RegNum");
             RegClass = getIntent().getStringExtra("RegClass");
-            RegTrn = getIntent().getStringExtra(" RegTrn");
-            RegPrv = getIntent().getStringExtra(" RegPrv");
-            RegPrc = getIntent().getStringExtra(" RegPrc");
+            RegTrn = getIntent().getStringExtra("RegTrn");
+            RegPrv = getIntent().getStringExtra("RegPrv");
+            RegPrc = getIntent().getStringExtra("RegPrc");
 
             //Setting Intent Data
             UPRegNum1.setText(RegNum);
@@ -80,7 +86,7 @@ public class UpdateReg extends AppCompatActivity {
 
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Удалить билет? " + RegNum + " ?");
+        builder.setTitle("Удалить билет " + RegNum + " ?");
         builder.setMessage("Вы действительно хотите удалить билет " + RegNum + " ?");
         builder.setPositiveButton("Да", new DialogInterface.OnClickListener() {
             @Override

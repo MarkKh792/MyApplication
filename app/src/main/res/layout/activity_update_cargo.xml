@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateCargo">
+
+    <ScrollView
+        android:layout_width="308dp"
+        android:layout_height="629dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/caTrain_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Номер состава"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="57dp"
+                tools:layout_editor_absoluteY="177dp" />
+
+            <EditText
+                android:id="@+id/caMarshrut_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Маршрут"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="185dp"
+                tools:layout_editor_absoluteY="361dp" />
+
+            <EditText
+                android:id="@+id/caDay_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="День рейса"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="412dp" />
+
+            <EditText
+                android:id="@+id/caPribil_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Время прибытия"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="117dp"
+                tools:layout_editor_absoluteY="113dp" />
+
+            <EditText
+                android:id="@+id/caYedet_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Время отправления"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="85dp"
+                tools:layout_editor_absoluteY="457dp" />
+
+            <EditText
+                android:id="@+id/cargo_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Груз"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="271dp" />
+
+            <EditText
+                android:id="@+id/weight_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Масса груза"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="114dp"
+                tools:layout_editor_absoluteY="232dp" />
+
+            <EditText
+                android:id="@+id/caPrice_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ценность груза"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="112dp"
+                tools:layout_editor_absoluteY="316dp" />
+
+            <EditText
+                android:id="@+id/add_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Добавлено вагонов"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="85dp"
+                tools:layout_editor_absoluteY="522dp" />
+
+            <EditText
+                android:id="@+id/addnt_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Отцеплено вагонов"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="134dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <Button
+                android:id="@+id/updateCargo_button"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:text="@string/update"
+                tools:layout_editor_absoluteX="112dp"
+                tools:layout_editor_absoluteY="589dp" />
+
+            <Button
+                android:id="@+id/deleteCargo_button"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="@string/delete"
+                tools:layout_editor_absoluteX="117dp"
+                tools:layout_editor_absoluteY="660dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

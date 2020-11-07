@@ -22,22 +22,22 @@ import android.os.Bundle;
 
 public class ViewTickets2 extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    TextView header;
+    RecyclerView recyclerView2;
+    TextView header2;
     MyDatabaseHelper myDB;
 
     ArrayList<String> NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut;
 
-    CustomAdapter1 customAdapter;
+    CustomAdapter1 customAdapter1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_tickets1);
+        setContentView(R.layout.activity_view_tickets2);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        header = findViewById(R.id.header);
+        recyclerView2 = findViewById(R.id.recyclerView1);
+        header2 = findViewById(R.id.header2);
 
         myDB = new MyDatabaseHelper(ViewTickets2.this);
         NOutTicket = new ArrayList<>();
@@ -53,16 +53,16 @@ public class ViewTickets2 extends AppCompatActivity {
 
         storeDataInArrays();
 
-        customAdapter = new CustomAdapter1(ViewTickets2.this,this, NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut);
-        recyclerView.setAdapter(customAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(ViewTickets2.this));
+        customAdapter1 = new CustomAdapter1(ViewTickets2.this,this, NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut);
+        recyclerView2.setAdapter(customAdapter1);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(ViewTickets2.this));
 
     }
 
     void storeDataInArrays(){
-        Cursor cursor = myDB.readAllDataOUT();
+        Cursor cursor = myDB.readAllDataOUT();      //ВНИМАНИЕ НА readAll---
         if(cursor.getCount() == 0){
-            header.setVisibility(View.VISIBLE);
+            header2.setVisibility(View.VISIBLE);
         }else{
             while (cursor.moveToNext()){
                 NOutTicket.add(cursor.getString(0));
@@ -76,7 +76,7 @@ public class ViewTickets2 extends AppCompatActivity {
                 Seat.add(cursor.getString(8));
                 PriceOut.add(cursor.getString(9));
             }
-            header.setVisibility(View.GONE);
+            header2.setVisibility(View.GONE);
         }
     }
 }

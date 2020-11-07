@@ -9,18 +9,19 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewOutsideTicket extends AppCompatActivity {
-    EditText PersonName, PersonName2, PersonName3, Passport, TrainOutside, TicketOutside, WagonClass, Wagon, Seat, Price;
+    EditText  TicketOutside, PersonName, PersonName2, PersonName3, Passport, TrainOutside, WagonClass, Wagon, Seat, Price;
     Button add_Out;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_outside_ticket);
 
+        TicketOutside = findViewById(R.id.TicketOutside);
         PersonName = findViewById(R.id.PersonName);
         PersonName2 = findViewById(R.id.PersonName2);
         PersonName3 = findViewById(R.id.PersonName3);
         Passport = findViewById(R.id.Passport);
         TrainOutside = findViewById(R.id.TrainOutside);
-        TicketOutside = findViewById(R.id.TicketOutside);
+
         WagonClass = findViewById(R.id.WagonClass);
         Wagon = findViewById(R.id.Wagon);
         Seat = findViewById(R.id.Seat);
@@ -30,12 +31,13 @@ public class NewOutsideTicket extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(NewOutsideTicket.this);
-                myDB.addOutinfo(PersonName.getText().toString().trim(),
+                myDB.addOutinfo(TicketOutside.getText().toString().trim(),
+                        PersonName.getText().toString().trim(),
                         PersonName2.getText().toString().trim(),
                         PersonName3.getText().toString().trim(),
                         Passport.getText().toString().trim(),
                         TrainOutside.getText().toString().trim(),
-                        TicketOutside.getText().toString().trim(),
+
                         WagonClass.getText().toString().trim(),
                         Integer.valueOf(Wagon.getText().toString().trim()),
                         Integer.valueOf(Seat.getText().toString().trim()),

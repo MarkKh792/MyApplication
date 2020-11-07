@@ -16,13 +16,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyViewHolder> { //Adapter<CustomAdapter1.MyViewHolder>
+public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyViewHolder> {
+
     private Context context;
     private Activity activity;
     private ArrayList  NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut;
 
-    CustomAdapter1(Activity activity, Context context, ArrayList Fname, ArrayList Lname, ArrayList Sname,
-                  ArrayList NPass, ArrayList TraiN, ArrayList NOutTicket, ArrayList WagClass, ArrayList NWag, ArrayList Seat, ArrayList PriceOut){
+    CustomAdapter1(Activity activity, Context context, ArrayList NOutTicket, ArrayList Fname, ArrayList Lname, ArrayList Sname, ArrayList NPass, ArrayList TraiN, ArrayList WagClass, ArrayList NWag, ArrayList Seat, ArrayList PriceOut){
         this.activity = activity;
         this.context = context;
         this.NOutTicket = NOutTicket;
@@ -41,7 +41,7 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyViewHo
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.out_row, parent, false);
+        View view = inflater.inflate(R.layout.out_row1, parent, false);
         return new MyViewHolder(view);
     }
 

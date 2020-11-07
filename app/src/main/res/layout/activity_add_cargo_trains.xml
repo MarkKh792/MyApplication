@@ -137,7 +137,6 @@
         android:layout_width="170dp"
         android:layout_height="55dp"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="18dp"
         android:layout_marginEnd="121dp"
         android:layout_marginBottom="64dp"
         android:text="@string/add_button"
@@ -159,5 +158,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CaMarshrut" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="162dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/View_Button"
+        android:onClick="ViewCargo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_CaTrain" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

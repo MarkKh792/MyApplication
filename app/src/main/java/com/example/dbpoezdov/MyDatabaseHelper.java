@@ -84,12 +84,12 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
             db.execSQL(query);
 
             String query1 = "CREATE TABLE " + TABLEOUT +
-                    " (" + COLFname + " TEXT, " +
+                    " (" + COLNOutTicket + " STRING, " +
+                    COLFname + " TEXT, " +
                     COLLname + " TEXT, " +
                     COLSname + " TEXT, " +
                     COLNPass + " STRING, " +
                     COLTraiN + " STRING PRIMARY KEY, " +
-                    COLNOutTicket + " STRING, " +
                     COLWagClass + " TEXT, " +
                     COLNWag + " INTEGER, " +
                     COLSeat + " INTEGER, " +
@@ -167,12 +167,13 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
+        cv.put(COLNOutTicket, Ticket);
         cv.put(COLFname, name1);
         cv.put(COLLname, name2);
         cv.put(COLSname, name3);
         cv.put(COLNPass, Passp);
         cv.put(COLTraiN, Train);
-        cv.put(COLNOutTicket, Ticket);
+
         cv.put(COLWagClass, Class);
         cv.put(COLNWag, NumWag);
         cv.put(COLSeat, OutSeat);
@@ -255,6 +256,17 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    Cursor readAllDataCARGO(){
+        String query = "SELECT * FROM " + TABLECARG;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
     void updateREGdata(String RegID, String classREG, String TrainNum, String PrevREG, String PriceREG){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -273,21 +285,46 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    void updateOutData(String name1, String name2, String name3, String Passp, String Train, String Ticket, String Class, String NumWag, String OutSeat, String OutPrice){
+    void updateOutData(String Ticket, String name1, String name2, String name3, String Passp, String Train, String Class, String NumWag, String OutSeat, String OutPrice){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+        cv.put(COLNOutTicket, Ticket);
         cv.put(COLFname, name1);
         cv.put(COLLname, name2);
         cv.put(COLSname, name3);
         cv.put(COLNPass, Passp);
         cv.put(COLTraiN, Train);
-        cv.put(COLNOutTicket, Ticket);
+
         cv.put(COLWagClass, Class);
         cv.put(COLNWag, NumWag);
         cv.put(COLSeat, OutSeat);
         cv.put(COLPriceOut, OutPrice);
 
         long result = db.update(TABLEOUT, cv, "_id=?", new String[]{Ticket});
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    void updateCargoData(String TrainCa, String WayCa, String DayCa, String PribilCa, String YedetCa, String CargoCa, String WeightCa, String PriceCa, String AddCa, String AddntCa){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COL_CaTrain, TrainCa);
+        cv.put(COL_CaWay, WayCa);
+        cv.put(COL_CaDay, DayCa);
+        cv.put(COL_CaPribil, PribilCa);
+        cv.put(COL_CaYedet, YedetCa);
+        cv.put(COL_Cargo, CargoCa);
+
+        cv.put(COL_Weight, WeightCa);
+        cv.put(COL_Price, PriceCa);
+        cv.put(COL_Add, AddCa);
+        cv.put(COL_Addnt, AddntCa);
+
+        long result = db.update(TABLECARG, cv, "_id=?", new String[]{TrainCa});
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         }else {
@@ -306,9 +343,19 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    void deleteOneOutRow(String row_id){
+    void deleteOneOutRow(String Ticket){
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLEOUT, "_id=?", new String[]{row_id});
+        long result = db.delete(TABLEOUT, "_id=?", new String[]{Ticket});
+        if(result == -1){
+            Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void deleteOneCargoRow(String TrainCa){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLECARG, "_id=?", new String[]{TrainCa});
         if(result == -1){
             Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
         }else{
