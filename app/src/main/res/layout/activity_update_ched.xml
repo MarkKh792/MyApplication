@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateChed">
+
+    <ScrollView
+        android:layout_width="314dp"
+        android:layout_height="591dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/ChTrain_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Номер состава"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/ChMarshrut_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Маршрут"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/ChDay_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="День"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/ChPribil_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Время прибытия"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/ChYedet_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Время отправления"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/ChWay_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Номер пути"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/ChPlatform_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Номер платформы"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/ChVagonov_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Количество вагонов"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/ChMest_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Количество мест"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/UpdateCh_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/update" />
+
+            <Button
+                android:id="@+id/DeleteCh_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/delete" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
