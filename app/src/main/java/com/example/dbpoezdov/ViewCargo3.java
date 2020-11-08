@@ -26,7 +26,7 @@ public class ViewCargo3 extends AppCompatActivity {
     TextView header3;
     MyDatabaseHelper myDB;
 
-    ArrayList<String> caTrain, caMarshrut, caDay, caPribil, caYedet, cargo, weight, caPrice, add, addnt;
+    ArrayList<String> caID, caTrain, caMarshrut, caDay, caPribil, caYedet, cargo, weight, caPrice, add, addnt;
 
     CustomAdapter2 customAdapter2;
 
@@ -35,10 +35,11 @@ public class ViewCargo3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_cargo3);
 
-        recyclerView3 = findViewById(R.id.recyclerView3);
+        recyclerView3 = findViewById(R.id.recyclerView2);
         header3 = findViewById(R.id.header3);
 
         myDB = new MyDatabaseHelper(ViewCargo3.this);
+        caID = new ArrayList<>();
         caTrain = new ArrayList<>();
         caMarshrut = new ArrayList<>();
         caDay = new ArrayList<>();
@@ -52,7 +53,7 @@ public class ViewCargo3 extends AppCompatActivity {
 
         storeDataInArrays();
 
-        customAdapter2 = new CustomAdapter2(ViewCargo3.this,this, caTrain, caMarshrut, caDay, caPribil, caYedet, cargo, weight, caPrice, add, addnt);
+        customAdapter2 = new CustomAdapter2(ViewCargo3.this,this, caID, caTrain, caMarshrut, caDay, caPribil, caYedet, cargo, weight, caPrice, add, addnt);
         recyclerView3.setAdapter(customAdapter2);
         recyclerView3.setLayoutManager(new LinearLayoutManager(ViewCargo3.this));
 
@@ -64,16 +65,17 @@ public class ViewCargo3 extends AppCompatActivity {
             header3.setVisibility(View.VISIBLE);
         }else{
             while (cursor.moveToNext()){
-                caTrain.add(cursor.getString(0));
-                caMarshrut.add(cursor.getString(1));
-                caDay.add(cursor.getString(2));
-                caPribil.add(cursor.getString(3));
-                caYedet.add(cursor.getString(4));
-                cargo.add(cursor.getString(5));
-                weight.add(cursor.getString(6));
-                caPrice.add(cursor.getString(7));
-                add.add(cursor.getString(8));
-                addnt.add(cursor.getString(9));
+                caID.add(cursor.getString(0));
+                caTrain.add(cursor.getString(1));
+                caMarshrut.add(cursor.getString(2));
+                caDay.add(cursor.getString(3));
+                caPribil.add(cursor.getString(4));
+                caYedet.add(cursor.getString(5));
+                cargo.add(cursor.getString(6));
+                weight.add(cursor.getString(7));
+                caPrice.add(cursor.getString(8));
+                add.add(cursor.getString(9));
+                addnt.add(cursor.getString(10));
             }
             header3.setVisibility(View.GONE);
         }

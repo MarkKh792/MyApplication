@@ -1,4 +1,4 @@
-/*package com.example.dbpoezdov;
+package com.example.dbpoezdov;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.Nullable;
@@ -22,50 +22,62 @@ import android.os.Bundle;
 
 public class ViewChedule extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    TextView header;
+    RecyclerView recyclerView3;
+    TextView header4;
     MyDatabaseHelper myDB;
 
-    ArrayList<String> RegTicket, WagonClass, TrainNumb, Prevel, Price;
+    ArrayList<String> ChID, ChTrain, ChMarshrut, ChDay, ChPribil, ChYedet, ChWay, ChPlatform, ChVagonov, ChMest;
 
-    CustomAdapter customAdapter;
+    CustomAdapter3 customAdapter3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_tickets1);
+        setContentView(R.layout.activity_view_chedule);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        header = findViewById(R.id.header);
+        recyclerView3 = findViewById(R.id.recyclerView3);
+        header4 = findViewById(R.id.header4);
 
         myDB = new MyDatabaseHelper(ViewChedule.this);
-        RegTicket = new ArrayList<>();
-        WagonClass = new ArrayList<>();
-        TrainNumb = new ArrayList<>();
-        Prevel = new ArrayList<>();
-        Price = new ArrayList<>();
+        ChID = new ArrayList<>();
+        ChTrain = new ArrayList<>();
+        ChMarshrut = new ArrayList<>();
+        ChDay = new ArrayList<>();
+        ChPribil = new ArrayList<>();
+        ChYedet = new ArrayList<>();
+        ChWay = new ArrayList<>();
+        ChPlatform = new ArrayList<>();
+        ChVagonov = new ArrayList<>();
+        ChMest = new ArrayList<>();
+
 
         storeDataInArrays();
 
-        customAdapter = new CustomAdapter(ViewTickets1.this,this, RegTicket, WagonClass, TrainNumb, Prevel, Price);
-        recyclerView.setAdapter(customAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(ViewTickets1.this));
+        customAdapter3 = new CustomAdapter3(ViewChedule.this,this, ChID, ChTrain, ChMarshrut, ChDay, ChPribil, ChYedet, ChWay, ChPlatform, ChVagonov, ChMest);
+        recyclerView3.setAdapter(customAdapter3);
+        recyclerView3.setLayoutManager(new LinearLayoutManager(ViewChedule.this));
 
     }
 
     void storeDataInArrays(){
-        Cursor cursor = myDB.readAllDataREG();
+        Cursor cursor = myDB.readAllDataCHED();
         if(cursor.getCount() == 0){
-            header.setVisibility(View.VISIBLE);
+            header4.setVisibility(View.VISIBLE);
         }else{
             while (cursor.moveToNext()){
-                RegTicket.add(cursor.getString(0));
-                WagonClass.add(cursor.getString(1));
-                TrainNumb.add(cursor.getString(2));
-                Prevel.add(cursor.getString(3));
-                Price.add(cursor.getString(4));
+                ChID.add(cursor.getString(0));
+                ChTrain.add(cursor.getString(1));
+                ChMarshrut.add(cursor.getString(2));
+                ChDay.add(cursor.getString(3));
+                ChPribil.add(cursor.getString(4));
+                ChYedet.add(cursor.getString(5));
+                ChWay.add(cursor.getString(6));
+                ChPlatform.add(cursor.getString(7));
+                ChVagonov.add(cursor.getString(8));
+                ChMest.add(cursor.getString(9));
+
             }
-            header.setVisibility(View.GONE);
+            header4.setVisibility(View.GONE);
         }
     }
-}*/
+}

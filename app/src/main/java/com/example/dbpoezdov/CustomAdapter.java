@@ -20,11 +20,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     private Context context;
     private Activity activity;
-    private ArrayList RegTicket, WagonClass, TrainNumb, Prevel, Price;
+    private ArrayList RegID, RegTicket, WagonClass, TrainNumb, Prevel, Price;
 
-    CustomAdapter(Activity activity, Context context, ArrayList RegTicket, ArrayList WagonClass, ArrayList TrainNumb, ArrayList Prevel, ArrayList Price){
+    CustomAdapter(Activity activity, Context context, ArrayList RegID, ArrayList RegTicket, ArrayList WagonClass, ArrayList TrainNumb, ArrayList Prevel, ArrayList Price){
         this.activity = activity;
         this.context = context;
+        this.RegID = RegID;
         this.RegTicket = RegTicket;
         this.WagonClass = WagonClass;
         this.TrainNumb = TrainNumb;
@@ -43,6 +44,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
+        holder.RegID_txt.setText(String.valueOf(RegID.get(position)));
         holder.RegTicket_txt.setText(String.valueOf(RegTicket.get(position)));
         holder.WagonClass_txt.setText(String.valueOf(WagonClass.get(position)));
         holder.TrainNumb_txt.setText(String.valueOf(TrainNumb.get(position)));
@@ -53,6 +55,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, UpdateReg.class);
+                intent.putExtra("IDReg", String.valueOf(RegID.get(position)));
                 intent.putExtra("RegNum", String.valueOf(RegTicket.get(position)));
                 intent.putExtra("RegClass", String.valueOf(WagonClass.get(position)));
                 intent.putExtra("RegTrn", String.valueOf(TrainNumb.get(position)));
@@ -67,15 +70,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public int getItemCount() {
-        return RegTicket.size();
+        return RegID.size();
     }
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView RegTicket_txt, WagonClass_txt, TrainNumb_txt, Prevel_txt, Price_txt;
+        TextView RegID_txt, RegTicket_txt, WagonClass_txt, TrainNumb_txt, Prevel_txt, Price_txt;
         LinearLayout mainLayout;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            RegID_txt = itemView.findViewById(R.id.RegID_txt);
             RegTicket_txt = itemView.findViewById(R.id.RegTicket_txt);
             WagonClass_txt = itemView.findViewById(R.id.WagonClass_txt);
             TrainNumb_txt = itemView.findViewById(R.id.TrainNumb_txt);

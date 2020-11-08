@@ -1,5 +1,6 @@
 package com.example.dbpoezdov;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,14 +9,13 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class OperChedule extends AppCompatActivity {
-    EditText ChTrain, ChSostType, ChMarshrut, ChDay, ChPribil, ChYedet, ChWay, ChPlatf, ChVagonov, ChMest;
+    EditText ChTrain, ChMarshrut, ChDay, ChPribil, ChYedet, ChWay, ChPlatf, ChVagonov, ChMest;
     Button add_Ched;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oper_chedule);
 
         ChTrain = findViewById(R.id.ChTextTrain);
-        ChSostType = findViewById(R.id.ChTextSostav);
         ChMarshrut = findViewById(R.id.ChTextMarshrut);
         ChDay = findViewById(R.id.ChTextDay);
         ChPribil = findViewById(R.id.ChTextPribil);
@@ -30,7 +30,6 @@ public class OperChedule extends AppCompatActivity {
             public void onClick(View view) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(OperChedule.this);
                 myDB.addCHEDinfo(ChTrain.getText().toString().trim(),
-                        ChSostType.getText().toString().trim(),
                         ChMarshrut.getText().toString().trim(),
                         Integer.valueOf(ChDay.getText().toString().trim()),
                         ChPribil.getText().toString().trim(),
@@ -41,4 +40,9 @@ public class OperChedule extends AppCompatActivity {
                         Integer.valueOf(ChMest.getText().toString().trim()));
             }
         });
-    }}
+    }
+    public void ViewChed(View view) {
+        Intent intent = new Intent(OperChedule.this, ViewChedule.class);
+        startActivity(intent);
+    }
+}

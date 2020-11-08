@@ -25,6 +25,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     private static String DB_PATH;
 
     static final String TABLEREG = "REG_Ticket"; //Добавить региональный билет
+    private static final String COL_RegID = "_id";
     private static final String COLTicket_RegID = "REG_TicketID";
     private static final String COLWagon_classREG = "REG_WagonClass";
     private static final String COLNtrain = "TrainNumber";
@@ -32,6 +33,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLPriceREG = "Price";
 
     static final String TABLEOUT = "Out_Ticket"; // Таблица 2 Out
+    private static final String COL_OutID = "_id";
     private static final String COLFname = "Out_Fname";
     private static final String COLLname = "Out_Lname";
     private static final String COLSname = "Out_Sname";
@@ -44,8 +46,8 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLPriceOut = "Out_Price";
 
     static final String TABLECHED = "Chedule"; //таблица с расписанием
+    private static final String COL_ChID = "_id";
     private static final String COL_ChTrain = "Train";
-    private static final String COL_ChTrType = "Tip_Sostava";
     private static final String COL_ChWay = "Way";
     private static final String COL_Chday = "Day";
     private static final String COL_ChPribil = "Pribil_v";
@@ -56,6 +58,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_ChMest = "Mest";
 
     static final String TABLECARG = "CargoTrains"; //таблица с груз составамм
+    private static final String COL_CaID = "_id";
     private static final String COL_CaTrain = "Train";
     private static final String COL_CaWay = "Way";
     private static final String COL_CaDay = "Day";
@@ -76,7 +79,8 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         @Override
         public void onCreate(SQLiteDatabase db) {
             String query = "CREATE TABLE " + TABLEREG +
-                    " (" + COLTicket_RegID + " STRING PRIMARY KEY, " +
+                    " (" + COL_RegID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLTicket_RegID + " STRING, " +
                     COLWagon_classREG + " TEXT, " +
                     COLNtrain + " STRING," +//было TEXT
                     COLPreveligy +" TEXT, " +
@@ -84,12 +88,13 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
             db.execSQL(query);
 
             String query1 = "CREATE TABLE " + TABLEOUT +
-                    " (" + COLNOutTicket + " STRING, " +
+                    " (" + COL_OutID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLNOutTicket + " STRING, " +
                     COLFname + " TEXT, " +
                     COLLname + " TEXT, " +
                     COLSname + " TEXT, " +
                     COLNPass + " STRING, " +
-                    COLTraiN + " STRING PRIMARY KEY, " +
+                    COLTraiN + " STRING, " +
                     COLWagClass + " TEXT, " +
                     COLNWag + " INTEGER, " +
                     COLSeat + " INTEGER, " +
@@ -97,8 +102,8 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
             db.execSQL(query1);
 
             String query2 = "CREATE TABLE " + TABLECHED +
-                    " (" + COL_ChTrain + " STRING PRIMARY KEY, " +
-                    COL_ChTrType + " TEXT, " +
+                    " (" + COL_ChID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COL_ChTrain + " STRING, " +
                     COL_ChWay + " STRING, " +
                     COL_Chday + " INTEGER, " +
                     COL_ChPribil + " STRING, " +
@@ -110,7 +115,8 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
             db.execSQL(query2);
 
             String query3 = "CREATE TABLE " + TABLECARG +
-                    " (" + COL_CaTrain + " STRING PRIMARY KEY, " +
+                    " (" + COL_CaID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COL_CaTrain + " STRING, " +
                     COL_CaWay + " STRING, " +
                     COL_CaDay + " INTEGER, " +
                     COL_CaPribil + " STRING, " +
@@ -188,12 +194,11 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    void addCHEDinfo(String TrainCh, String TypeCh, String WayCh, int DayCh, String PribilCh, String YedetCh, int PutCh,  int PlatformCh, int VagonCh, int MestCh){
+    void addCHEDinfo(String TrainCh, String WayCh, int DayCh, String PribilCh, String YedetCh, int PutCh,  int PlatformCh, int VagonCh, int MestCh){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put(COL_ChTrain, TrainCh);
-        cv.put(COL_ChTrType, TypeCh);
         cv.put(COL_ChWay, WayCh);
         cv.put(COL_Chday, DayCh);
         cv.put(COL_ChPribil, PribilCh);
@@ -256,6 +261,17 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    Cursor readAllDataCHED(){
+        String query = "SELECT * FROM " + TABLECHED;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
     Cursor readAllDataCARGO(){
         String query = "SELECT * FROM " + TABLECARG;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -267,7 +283,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateREGdata(String RegID, String classREG, String TrainNum, String PrevREG, String PriceREG){
+    void updateREGdata(String RegRow_id, String RegID, String classREG, String TrainNum, String PrevREG, String PriceREG){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLTicket_RegID, RegID);
@@ -276,7 +292,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLPreveligy, PrevREG);
         cv.put(COLPriceREG, PriceREG);
 
-        long result = db.update(TABLEREG, cv, "_id=?", new String[]{RegID});
+        long result = db.update(TABLEREG, cv, "_id=?", new String[]{RegRow_id});
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         }else {
@@ -285,7 +301,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    void updateOutData(String Ticket, String name1, String name2, String name3, String Passp, String Train, String Class, String NumWag, String OutSeat, String OutPrice){
+    void updateOutData(String OutRow_id, String Ticket, String name1, String name2, String name3, String Passp, String Train, String Class, String NumWag, String OutSeat, String OutPrice){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLNOutTicket, Ticket);
@@ -300,7 +316,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLSeat, OutSeat);
         cv.put(COLPriceOut, OutPrice);
 
-        long result = db.update(TABLEOUT, cv, "_id=?", new String[]{Ticket});
+        long result = db.update(TABLEOUT, cv, "_id=?", new String[]{OutRow_id});
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         }else {
@@ -309,7 +325,30 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    void updateCargoData(String TrainCa, String WayCa, String DayCa, String PribilCa, String YedetCa, String CargoCa, String WeightCa, String PriceCa, String AddCa, String AddntCa){
+
+    void updateChedData(String ChedRow_id, String TrainCh, String WayCh, String DayCh, String PribilCh, String YedetCh, String PutCh, String PlatformCh, String VagonCh, String MestCh){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COL_ChTrain, TrainCh);
+        cv.put(COL_ChWay, WayCh);
+        cv.put(COL_Chday, DayCh);
+        cv.put(COL_ChPribil, PribilCh);
+        cv.put(COL_ChYedet, YedetCh);
+        cv.put(COL_ChPut, PutCh);
+        cv.put(COL_ChPlatform, PlatformCh);
+        cv.put(COL_ChVagon, VagonCh);
+        cv.put(COL_ChMest, MestCh);
+
+        long result = db.update(TABLECHED, cv, "_id=?", new String[]{ChedRow_id});
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    void updateCargoData(String CargoRow_id, String TrainCa, String WayCa, String DayCa, String PribilCa, String YedetCa, String CargoCa, String WeightCa, String PriceCa, String AddCa, String AddntCa){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_CaTrain, TrainCa);
@@ -324,7 +363,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COL_Add, AddCa);
         cv.put(COL_Addnt, AddntCa);
 
-        long result = db.update(TABLECARG, cv, "_id=?", new String[]{TrainCa});
+        long result = db.update(TABLECARG, cv, "_id=?", new String[]{CargoRow_id});
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         }else {
@@ -333,9 +372,9 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    void deleteOneREGrow(String row_id){
+    void deleteOneREGrow(String RegRow_id){
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLEREG, "_id=?", new String[]{row_id});
+        long result = db.delete(TABLEREG, "_id=?", new String[]{RegRow_id});
         if(result == -1){
             Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
         }else{
@@ -343,9 +382,9 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    void deleteOneOutRow(String Ticket){
+    void deleteOneOutRow(String OutRow_id){
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLEOUT, "_id=?", new String[]{Ticket});
+        long result = db.delete(TABLEOUT, "_id=?", new String[]{OutRow_id});
         if(result == -1){
             Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
         }else{
@@ -353,9 +392,19 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    void deleteOneCargoRow(String TrainCa){
+    void deleteOneChedRow(String ChedRow_id){
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLECARG, "_id=?", new String[]{TrainCa});
+        long result = db.delete(TABLECHED, "_id=?", new String[]{ChedRow_id});
+        if(result == -1){
+            Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void deleteOneCargoRow(String CargoRow_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLECARG, "_id=?", new String[]{CargoRow_id});
         if(result == -1){
             Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
         }else{

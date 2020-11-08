@@ -17,7 +17,7 @@ public class UpdateCargo extends AppCompatActivity {
     EditText caTrain_input1, caMarshrut_input1, caDay_input1, caPribil_input1, caYedet_input1, cargo_input1, weight_input1, caPrice_input1, add_input1, addnt_input1;
     Button updateCargo_button, deleteCargo_button;
 
-    String TrainCa, WayCa, DayCa, PribilCa, YedetCa, CargoCa, WeightCa, PriceCa, AddCa, AddntCa;
+    String IDCa, TrainCa, WayCa, DayCa, PribilCa, YedetCa, CargoCa, WeightCa, PriceCa, AddCa, AddntCa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class UpdateCargo extends AppCompatActivity {
                 PriceCa = caPrice_input1.getText().toString().trim();
                 AddCa = add_input1.getText().toString().trim();
                 AddntCa = addnt_input1.getText().toString().trim();
-                myDB.updateCargoData(TrainCa, WayCa, DayCa, PribilCa, YedetCa, CargoCa, WeightCa, PriceCa, AddCa, AddntCa);
+                myDB.updateCargoData(IDCa, TrainCa, WayCa, DayCa, PribilCa, YedetCa, CargoCa, WeightCa, PriceCa, AddCa, AddntCa);
             }
         });
         deleteCargo_button.setOnClickListener(new View.OnClickListener() {
@@ -74,12 +74,13 @@ public class UpdateCargo extends AppCompatActivity {
     }
 
     void getAndSetIntentData(){
-        if(getIntent().hasExtra("TrainCa") && getIntent().hasExtra("WayCa") &&
+        if(getIntent().hasExtra("IDCa") && getIntent().hasExtra("TrainCa") && getIntent().hasExtra("WayCa") &&
                 getIntent().hasExtra("DayCa") && getIntent().hasExtra("PribilCa")&&
                 getIntent().hasExtra("YedetCa")&& getIntent().hasExtra("CargoCa")&&
                 getIntent().hasExtra("WeightCa")&& getIntent().hasExtra("PriceCa")&&
                 getIntent().hasExtra("AddCa")&& getIntent().hasExtra("AddntCa")){
             //Getting Data from Intent
+            IDCa = getIntent().getStringExtra("IDCa");
             TrainCa = getIntent().getStringExtra("TrainCa");
             WayCa = getIntent().getStringExtra("WayCa");
             DayCa = getIntent().getStringExtra("DayCa");
@@ -116,7 +117,7 @@ public class UpdateCargo extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateCargo.this);
-                myDB.deleteOneCargoRow(TrainCa);
+                myDB.deleteOneCargoRow(IDCa);
                 finish();
             }
         });

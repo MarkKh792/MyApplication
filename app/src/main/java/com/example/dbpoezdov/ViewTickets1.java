@@ -26,7 +26,7 @@ public class ViewTickets1 extends AppCompatActivity {
     TextView header;
     MyDatabaseHelper myDB;
 
-    ArrayList<String> RegTicket, WagonClass, TrainNumb, Prevel, Price;
+    ArrayList<String> RegID, RegTicket, WagonClass, TrainNumb, Prevel, Price;
 
     CustomAdapter customAdapter;
 
@@ -39,6 +39,7 @@ public class ViewTickets1 extends AppCompatActivity {
         header = findViewById(R.id.header);
 
         myDB = new MyDatabaseHelper(ViewTickets1.this);
+        RegID = new ArrayList<>();
         RegTicket = new ArrayList<>();
         WagonClass = new ArrayList<>();
         TrainNumb = new ArrayList<>();
@@ -47,7 +48,7 @@ public class ViewTickets1 extends AppCompatActivity {
 
         storeDataInArrays();
 
-        customAdapter = new CustomAdapter(ViewTickets1.this,this, RegTicket, WagonClass, TrainNumb, Prevel, Price);
+        customAdapter = new CustomAdapter(ViewTickets1.this,this, RegID, RegTicket, WagonClass, TrainNumb, Prevel, Price);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(ViewTickets1.this));
 
@@ -59,11 +60,12 @@ public class ViewTickets1 extends AppCompatActivity {
             header.setVisibility(View.VISIBLE);
         }else{
             while (cursor.moveToNext()){
-                RegTicket.add(cursor.getString(0));
-                WagonClass.add(cursor.getString(1));
-                TrainNumb.add(cursor.getString(2));
-                Prevel.add(cursor.getString(3));
-                Price.add(cursor.getString(4));
+                RegID.add(cursor.getString(0));
+                RegTicket.add(cursor.getString(1));
+                WagonClass.add(cursor.getString(2));
+                TrainNumb.add(cursor.getString(3));
+                Prevel.add(cursor.getString(4));
+                Price.add(cursor.getString(5));
             }
             header.setVisibility(View.GONE);
         }

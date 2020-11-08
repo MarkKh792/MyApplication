@@ -20,11 +20,12 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyViewHo
 
     private Context context;
     private Activity activity;
-    private ArrayList  NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut;
+    private ArrayList  OutID, NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut;
 
-    CustomAdapter1(Activity activity, Context context, ArrayList NOutTicket, ArrayList Fname, ArrayList Lname, ArrayList Sname, ArrayList NPass, ArrayList TraiN, ArrayList WagClass, ArrayList NWag, ArrayList Seat, ArrayList PriceOut){
+    CustomAdapter1(Activity activity, Context context, ArrayList OutID, ArrayList NOutTicket, ArrayList Fname, ArrayList Lname, ArrayList Sname, ArrayList NPass, ArrayList TraiN, ArrayList WagClass, ArrayList NWag, ArrayList Seat, ArrayList PriceOut){
         this.activity = activity;
         this.context = context;
+        this.OutID = OutID;
         this.NOutTicket = NOutTicket;
         this.Fname = Fname;
         this.Lname = Lname;
@@ -48,6 +49,7 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyViewHo
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
+        holder.OutID_txt.setText(String.valueOf(OutID.get(position)));
         holder.text_NOutTicket.setText(String.valueOf(NOutTicket.get(position)));
         holder.text_Fname.setText(String.valueOf(Fname.get(position)));
         holder.text_Lname.setText(String.valueOf(Lname.get(position)));
@@ -63,6 +65,7 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyViewHo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, UpdateOut.class);
+                intent.putExtra("IDOut", String.valueOf(OutID.get(position)));
                 intent.putExtra("Ticket", String.valueOf(NOutTicket.get(position)));
                 intent.putExtra("name1", String.valueOf(Fname.get(position)));
                 intent.putExtra("name2", String.valueOf(Lname.get(position)));
@@ -82,15 +85,16 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyViewHo
 
     @Override
     public int getItemCount() {
-        return NOutTicket.size();
+        return OutID.size();
     }
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView text_NOutTicket, text_Fname, text_Lname, text_Sname, text_NPass, text_TraiN, text_WagClass, text_NWag, text_Seat, text_PriceOut;
+        TextView OutID_txt, text_NOutTicket, text_Fname, text_Lname, text_Sname, text_NPass, text_TraiN, text_WagClass, text_NWag, text_Seat, text_PriceOut;
         LinearLayout mainLayout;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            OutID_txt = itemView.findViewById(R.id.OutID_txt);
             text_NOutTicket = itemView.findViewById(R.id.text_NOutTicket);
             text_Fname = itemView.findViewById(R.id.text_Fname);
             text_Lname = itemView.findViewById(R.id.text_Lname);

@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".UpdateCargo"></activity>
+        <activity android:name=".ViewTickets2"></activity>
+        <activity android:name=".UpdateChed" />
+        <activity android:name=".UpdateCargo" />
         <activity android:name=".ViewCargo3" />
         <activity android:name=".ViewChedule" />
         <activity android:name=".UpdateOut" />

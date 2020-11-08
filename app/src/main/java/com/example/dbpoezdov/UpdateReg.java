@@ -17,7 +17,7 @@ public class UpdateReg extends AppCompatActivity {
     EditText UPRegNum1, UPRegClass1, UPRegTrn1, UPRregPrev1, UPRegPrice1;
     Button UpdateREG_button, DeleteREG_button;
 
-    String RegNum, RegClass, RegTrn, RegPrv, RegPrc;
+    String IDReg, RegNum, RegClass, RegTrn, RegPrv, RegPrc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,7 @@ public class UpdateReg extends AppCompatActivity {
                 RegTrn = UPRegTrn1.getText().toString().trim();
                 RegPrv = UPRregPrev1.getText().toString().trim();
                 RegPrc = UPRegPrice1.getText().toString().trim();
-                myDB.updateREGdata(RegNum, RegClass, RegTrn, RegPrv, RegPrc);
+                myDB.updateREGdata(IDReg, RegNum, RegClass, RegTrn, RegPrv, RegPrc);
             }
         });
         DeleteREG_button.setOnClickListener(new View.OnClickListener() {
@@ -62,10 +62,11 @@ public class UpdateReg extends AppCompatActivity {
     }
 
     void getAndSetIntentData(){
-        if(getIntent().hasExtra("RegNum") && getIntent().hasExtra("RegClass") &&
-                getIntent().hasExtra("RegTrn") && getIntent().hasExtra("RegPrv")&&
-                getIntent().hasExtra("RegPrc")){
+        if(getIntent().hasExtra("IDReg") && getIntent().hasExtra("RegNum")
+                && getIntent().hasExtra("RegClass") && getIntent().hasExtra("RegTrn") &&
+                getIntent().hasExtra("RegPrv") && getIntent().hasExtra("RegPrc")){
             //Getting Data from Intent
+            IDReg = getIntent().getStringExtra("IDReg");
             RegNum = getIntent().getStringExtra("RegNum");
             RegClass = getIntent().getStringExtra("RegClass");
             RegTrn = getIntent().getStringExtra("RegTrn");
@@ -92,7 +93,7 @@ public class UpdateReg extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateReg.this);
-                myDB.deleteOneREGrow(RegNum);
+                myDB.deleteOneREGrow(IDReg);
                 finish();
             }
         });

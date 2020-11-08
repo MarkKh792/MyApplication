@@ -17,7 +17,7 @@ public class UpdateOut extends AppCompatActivity {
     EditText UPPersonName1, UPPersonName21, UPPersonName31, UPPassport1, UPTrainOutside1, UPTicketOutside1, UPWagonClass1, UPWagon1, UPSeat1, UPPriceOut1;
     Button UPOut, DeleteOut;
 
-    String name1, name2, name3, Passp, Train, Ticket, Class, NumWag, OutSeat, OutPrice;
+    String IDOut, name1, name2, name3, Passp, Train, Ticket, Class, NumWag, OutSeat, OutPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class UpdateOut extends AppCompatActivity {
                 NumWag = UPWagon1.getText().toString().trim();
                 OutSeat = UPSeat1.getText().toString().trim();
                 OutPrice = UPPriceOut1.getText().toString().trim();
-                myDB.updateOutData(name1, name2, name3, Passp, Train, Ticket, Class, NumWag, OutSeat, OutPrice);
+                myDB.updateOutData(IDOut, name1, name2, name3, Passp, Train, Ticket, Class, NumWag, OutSeat, OutPrice);
             }
         });
         DeleteOut.setOnClickListener(new View.OnClickListener() {
@@ -73,12 +73,13 @@ public class UpdateOut extends AppCompatActivity {
     }
 
     void getAndSetIntentData(){
-        if(getIntent().hasExtra("name1") && getIntent().hasExtra("name2") &&
+        if(getIntent().hasExtra("IDOut") && getIntent().hasExtra("name1") && getIntent().hasExtra("name2") &&
                 getIntent().hasExtra("name3") && getIntent().hasExtra("Passp")&&
                 getIntent().hasExtra("Train")&& getIntent().hasExtra("Ticket")&&
                 getIntent().hasExtra("Class")&& getIntent().hasExtra("NumWag")&&
                 getIntent().hasExtra("OutSeat")&& getIntent().hasExtra("OutPrice")){
             //Getting Data from Intent
+            IDOut = getIntent().getStringExtra("IDOut");
             name1 = getIntent().getStringExtra("name1");
             name2 = getIntent().getStringExtra("name2");
             name3 = getIntent().getStringExtra("name3");
@@ -110,12 +111,12 @@ public class UpdateOut extends AppCompatActivity {
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Удалить билет" + Ticket + " ?");
-        builder.setMessage("Вы действительно хотите удалить заказ " + Ticket + " ?");
+        builder.setMessage("Вы действительно хотите удалить билет " + Ticket + " ?");
         builder.setPositiveButton("Да", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateOut.this);
-                myDB.deleteOneOutRow(Ticket);
+                myDB.deleteOneOutRow(IDOut);
                 finish();
             }
         });

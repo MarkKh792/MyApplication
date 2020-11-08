@@ -44,6 +44,7 @@
     <string name="text3">Номер поезда</string>
     <string name="text4">Льгота</string>
     <string name="text5">Стоимость</string>
+
     //Вывод информации по международным билетам
     <string name="textView">Билет</string>
     <string name="textView7">Имя</string>
@@ -55,5 +56,16 @@
     <string name="textView14">Вагон</string>
     <string name="textView15">Место</string>
     <string name="textView16">Стоимость</string>
+
+    //Вывод информации по пассажирским составам
+    <string name="textView25">Состав</string>
+    <string name="textView26">Маршрут</string>
+    <string name="textView27">День</string>
+    <string name="textView28">Прибытие</string>
+    <string name="textView29">Отправление</string>
+    <string name="textView30">Путь</string>
+    <string name="textView31">Платформа</string>
+    <string name="textView32">Вагонов</string>
+    <string name="textView33">Мест</string>
 
 </resources>

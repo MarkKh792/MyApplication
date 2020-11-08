@@ -22,24 +22,24 @@ import android.os.Bundle;
 
 public class ViewTickets2 extends AppCompatActivity {
 
-    RecyclerView recyclerView2;
+    RecyclerView recyclerView1;
     TextView header2;
     MyDatabaseHelper myDB;
 
-    ArrayList<String> NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut;
+    ArrayList<String> OutID, NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut;
 
     CustomAdapter1 customAdapter1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_tickets2);
 
-        recyclerView2 = findViewById(R.id.recyclerView1);
+        recyclerView1 = findViewById(R.id.recyclerView1);
         header2 = findViewById(R.id.header2);
 
         myDB = new MyDatabaseHelper(ViewTickets2.this);
+        OutID = new ArrayList<>();
         NOutTicket = new ArrayList<>();
         Fname = new ArrayList<>();
         Lname = new ArrayList<>();
@@ -53,28 +53,29 @@ public class ViewTickets2 extends AppCompatActivity {
 
         storeDataInArrays();
 
-        customAdapter1 = new CustomAdapter1(ViewTickets2.this,this, NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut);
-        recyclerView2.setAdapter(customAdapter1);
-        recyclerView2.setLayoutManager(new LinearLayoutManager(ViewTickets2.this));
+        customAdapter1 = new CustomAdapter1(ViewTickets2.this,this, OutID, NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut);
+        recyclerView1.setAdapter(customAdapter1);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(ViewTickets2.this));
 
     }
 
     void storeDataInArrays(){
-        Cursor cursor = myDB.readAllDataOUT();      //ВНИМАНИЕ НА readAll---
+        Cursor cursor = myDB.readAllDataOUT();   //ВНИМАНИЕ НА readAll---
         if(cursor.getCount() == 0){
             header2.setVisibility(View.VISIBLE);
         }else{
             while (cursor.moveToNext()){
-                NOutTicket.add(cursor.getString(0));
-                Fname.add(cursor.getString(1));
-                Lname.add(cursor.getString(2));
-                Sname.add(cursor.getString(3));
-                NPass.add(cursor.getString(4));
-                TraiN.add(cursor.getString(5));
-                WagClass.add(cursor.getString(6));
-                NWag.add(cursor.getString(7));
-                Seat.add(cursor.getString(8));
-                PriceOut.add(cursor.getString(9));
+                OutID.add(cursor.getString(0));
+                NOutTicket.add(cursor.getString(1));
+                Fname.add(cursor.getString(2));
+                Lname.add(cursor.getString(3));
+                Sname.add(cursor.getString(4));
+                NPass.add(cursor.getString(5));
+                TraiN.add(cursor.getString(6));
+                WagClass.add(cursor.getString(7));
+                NWag.add(cursor.getString(8));
+                Seat.add(cursor.getString(9));
+                PriceOut.add(cursor.getString(10));
             }
             header2.setVisibility(View.GONE);
         }

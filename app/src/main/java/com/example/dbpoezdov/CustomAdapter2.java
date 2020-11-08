@@ -20,12 +20,13 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
 
     private Context context;
     private Activity activity;
-    private ArrayList caTrain, caMarshrut, caDay, caPribil, caYedet, cargo, weight, caPrice, add, addnt;
+    private ArrayList caID, caTrain, caMarshrut, caDay, caPribil, caYedet, cargo, weight, caPrice, add, addnt;
 
-    CustomAdapter2(Activity activity, Context context, ArrayList caTrain, ArrayList caMarshrut, ArrayList caDay, ArrayList caPribil, ArrayList caYedet,
+    CustomAdapter2(Activity activity, Context context, ArrayList caID, ArrayList caTrain, ArrayList caMarshrut, ArrayList caDay, ArrayList caPribil, ArrayList caYedet,
     ArrayList cargo, ArrayList weight, ArrayList caPrice, ArrayList add, ArrayList addnt){
         this.activity = activity;
         this.context = context;
+        this.caID = caID;
         this.caTrain = caTrain;
         this.caMarshrut = caMarshrut;
         this.caDay = caDay;
@@ -49,6 +50,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
+        holder.CaID_txt.setText(String.valueOf(caID.get(position)));
         holder.CaTrain_txt.setText(String.valueOf(caTrain.get(position)));
         holder.CaMarshrut_txt.setText(String.valueOf(caMarshrut.get(position)));
         holder.CaDay_txt.setText(String.valueOf(caDay.get(position)));
@@ -64,6 +66,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, UpdateCargo.class);
+                intent.putExtra("IDCa", String.valueOf(caID.get(position)));
                 intent.putExtra("TrainCa", String.valueOf(caTrain.get(position)));
                 intent.putExtra("WayCa", String.valueOf(caMarshrut.get(position)));
                 intent.putExtra("DayCa", String.valueOf(caDay.get(position)));
@@ -83,15 +86,16 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
 
     @Override
     public int getItemCount() {
-        return caTrain.size();
+        return caID.size();
     }
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView CaTrain_txt, CaMarshrut_txt, CaDay_txt, CaPribil_txt, CaYedet_txt, Cargo_txt, CaWeight_txt, CaPrice_txt, CaAdd_txt, CaAddnt_txt;
+        TextView CaID_txt, CaTrain_txt, CaMarshrut_txt, CaDay_txt, CaPribil_txt, CaYedet_txt, Cargo_txt, CaWeight_txt, CaPrice_txt, CaAdd_txt, CaAddnt_txt;
         LinearLayout mainLayout;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            CaID_txt = itemView.findViewById(R.id.CaID_txt);
             CaTrain_txt = itemView.findViewById(R.id.CaTrain_txt);
             CaMarshrut_txt = itemView.findViewById(R.id.CaMarshrut_txt);
             CaDay_txt = itemView.findViewById(R.id.CaDay_txt);
