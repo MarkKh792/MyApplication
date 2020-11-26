@@ -105,6 +105,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/delete" />
 
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="createMyPDF"
+                android:text="@string/button13" />
+
         </LinearLayout>
     </ScrollView>
 

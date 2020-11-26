@@ -4,13 +4,18 @@
     <string name="button3">Удалить</string>
     <string name="button5">Войти</string>
     <string name="button6">Посмотреть расписание</string>
+    <string name="button7">Новый региональный билет</string>
     <string name="update">Обновить</string>
     <string name="delete">Удалить</string>
     //календарь
     <string name="textView1">Войти</string>
     <string name="textView2">Выберите дату</string>
-    //календарь
-    <string name="button7">Новый региональный билет</string>
+    <string name="textView34">Поезд</string>
+    <string name="textView35">Маршрут</string>
+    <string name="textView36">Прибытие</string>
+    <string name="textView37">Отправление</string>
+    <string name="textView38">Путь</string>
+    <string name="textView39">Платформа</string>
     //кассир
     <string name="button8">Новый международный билет</string>
     <string name="button9">Смотреть базу данных</string>
@@ -67,5 +72,8 @@
     <string name="textView31">Платформа</string>
     <string name="textView32">Вагонов</string>
     <string name="textView33">Мест</string>
+
+    //Создать PDF
+    <string name="button13">Создать PDF</string>
 
 </resources>
