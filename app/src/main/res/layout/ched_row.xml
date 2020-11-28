@@ -28,22 +28,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView26"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/textView26"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView25" />
-
-            <TextView
                 android:id="@+id/textView27"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/textView27"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView26" />
+                app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
             <TextView
                 android:id="@+id/textView28"
@@ -105,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:text="@string/textView25"
-                android:textColor="#000000"
+                android:textColor="#007ABB"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/textView25"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -114,27 +105,30 @@
                 android:id="@+id/ChMarshrut_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="39dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginBottom="54dp"
                 android:text="@string/textView26"
-                app:layout_constraintStart_toEndOf="@+id/textView26"
-                app:layout_constraintTop_toBottomOf="@+id/ChTrain_txt" />
+                android:textColor="#007ABB"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/ChPribil_txt"
+                app:layout_constraintStart_toEndOf="@+id/ChTrain_txt"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/ChDay_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="66dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/textView27"
                 app:layout_constraintStart_toEndOf="@+id/textView27"
-                app:layout_constraintTop_toBottomOf="@+id/ChMarshrut_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/ChTrain_txt" />
 
             <TextView
                 android:id="@+id/ChPribil_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="33dp"
+                android:layout_marginStart="35dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/textView28"
                 app:layout_constraintStart_toEndOf="@+id/textView28"
@@ -154,7 +148,7 @@
                 android:id="@+id/ChWay_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="69dp"
+                android:layout_marginStart="74dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/textView30"
                 app:layout_constraintStart_toEndOf="@+id/textView30"
@@ -174,7 +168,7 @@
                 android:id="@+id/ChVagonov_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="46dp"
+                android:layout_marginStart="48dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/textView32"
                 app:layout_constraintStart_toEndOf="@+id/textView32"
@@ -184,7 +178,7 @@
                 android:id="@+id/ChMest_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="66dp"
+                android:layout_marginStart="71dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/textView33"
                 app:layout_constraintStart_toEndOf="@+id/textView33"
@@ -192,8 +186,8 @@
 
             <TextView
                 android:id="@+id/ChID_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="3dp"
                 android:text="TextView"

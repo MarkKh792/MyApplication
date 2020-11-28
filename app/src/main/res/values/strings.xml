@@ -4,7 +4,6 @@
     <string name="button3">Удалить</string>
     <string name="button5">Войти</string>
     <string name="button6">Посмотреть расписание</string>
-    <string name="button7">Новый региональный билет</string>
     <string name="update">Обновить</string>
     <string name="delete">Удалить</string>
     //календарь
@@ -17,7 +16,8 @@
     <string name="textView38">Путь</string>
     <string name="textView39">Платформа</string>
     //кассир
-    <string name="button8">Новый международный билет</string>
+    <string name="button8">Международный билет</string>
+    <string name="button7">Региональный билет</string>
     <string name="button9">Смотреть базу данных</string>
     <string name="textView3">ДОБАВИТЬ</string>
     <string name="button10">Добавить</string>
@@ -27,7 +27,7 @@
 
     <string name="textView4">ДОБАВИТЬ</string>
     //Диспетчер
-    <string name="button11">Расписание</string>
+    <string name="button11">Пассажирский состав</string>
     <string name="button12">Грузовой состав</string>
     <string name="radioButton1">Региональные билеты</string>
     <string name="radioButton2">Международные билеты</string>
@@ -56,7 +56,7 @@
     <string name="textView10">Фамилия</string>
     <string name="textView11">Отчество</string>
     <string name="textView13">Паспорт</string>
-    <string name="textView9">Поезд</string>
+    <string name="textView9">Номер поезда</string>
     <string name="textView12">Класс вагона</string>
     <string name="textView14">Вагон</string>
     <string name="textView15">Место</string>

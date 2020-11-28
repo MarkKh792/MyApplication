@@ -110,8 +110,8 @@ public class UpdateOut extends AppCompatActivity {
 
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Удалить билет" + Ticket + " ?");
-        builder.setMessage("Вы действительно хотите удалить билет " + Ticket + " ?");
+        builder.setTitle("Удаление билета " + Ticket + " из базы данных");
+        builder.setMessage("Удалить билет " + Ticket + " ?");
         builder.setPositiveButton("Да", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

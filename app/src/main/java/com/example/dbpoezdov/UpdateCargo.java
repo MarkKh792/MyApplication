@@ -111,8 +111,8 @@ public class UpdateCargo extends AppCompatActivity {
 
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Удалить заказ " + TrainCa + " ?");
-        builder.setMessage("Вы действительно хотите удалить заказ " + TrainCa + " ?");
+        builder.setTitle("Удаление состава " + TrainCa + " из базы данных");
+        builder.setMessage("Удалить состав " + TrainCa + " ?");
         builder.setPositiveButton("Да", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

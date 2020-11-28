@@ -7,10 +7,10 @@
     tools:context=".UpdateChed">
 
     <ScrollView
-        android:layout_width="314dp"
-        android:layout_height="591dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="316dp"
+        android:layout_height="709dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +25,8 @@
                 android:id="@+id/ChTrain_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableStart="@drawable/train_numb"
+                android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Номер состава"
                 android:inputType="textPersonName" />
@@ -33,6 +35,9 @@
                 android:id="@+id/ChMarshrut_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/marshrut"
+                android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Маршрут"
                 android:inputType="textPersonName" />
@@ -41,14 +46,20 @@
                 android:id="@+id/ChDay_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/ic_baseline_today_24"
+                android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="День"
+                android:hint="День прибытия"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/ChPribil_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/time"
+                android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Время прибытия"
                 android:inputType="textPersonName" />
@@ -57,6 +68,9 @@
                 android:id="@+id/ChYedet_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/time"
+                android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Время отправления"
                 android:inputType="textPersonName" />
@@ -65,6 +79,9 @@
                 android:id="@+id/ChWay_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/nomer_puti"
+                android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Номер пути"
                 android:inputType="number" />
@@ -73,6 +90,9 @@
                 android:id="@+id/ChPlatform_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/platform"
+                android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Номер платформы"
                 android:inputType="number" />
@@ -81,14 +101,20 @@
                 android:id="@+id/ChVagonov_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:ems="10"
-                android:hint="Количество вагонов"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/amount"
+                android:hint="Число вагонов"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/ChMest_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/seat"
+                android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Количество мест"
                 android:inputType="number" />
@@ -96,21 +122,27 @@
             <Button
                 android:id="@+id/UpdateCh_button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="49dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button_pressed"
                 android:text="@string/update" />
-
-            <Button
-                android:id="@+id/DeleteCh_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/delete" />
 
             <Button
                 android:id="@+id/button13"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="49dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_pressed"
                 android:onClick="createMyPDF"
                 android:text="@string/button13" />
+
+            <Button
+                android:id="@+id/DeleteCh_button"
+                android:layout_width="match_parent"
+                android:background="@drawable/delete_button_theme"
+                android:layout_height="49dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/delete" />
 
         </LinearLayout>
     </ScrollView>

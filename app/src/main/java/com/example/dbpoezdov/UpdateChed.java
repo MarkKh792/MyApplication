@@ -150,7 +150,7 @@ public class UpdateChed extends AppCompatActivity {
         myPage.getCanvas().drawText("Время прибытия: " + myString4,10,95,myPaint);
         myPage.getCanvas().drawText("Время отправления: " + myString5,10,115,myPaint);
         myPage.getCanvas().drawText("Номер пути: " + myString6,10,135,myPaint);
-        myPage.getCanvas().drawText("Номер платформе: " + myString7,10,155,myPaint);
+        myPage.getCanvas().drawText("Номер платформы: " + myString7,10,155,myPaint);
 
 
         myPdfDocument.finishPage(myPage);
@@ -171,8 +171,8 @@ public class UpdateChed extends AppCompatActivity {
 
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Удалить заказ " + TrainCh + " ?");
-        builder.setMessage("Вы действительно хотите удалить заказ " + TrainCh + " ?");
+        builder.setTitle("Удаление состава " + TrainCh + " из базы данных");
+        builder.setMessage("Удалить состав " + TrainCh + " ?");
         builder.setPositiveButton("Да", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

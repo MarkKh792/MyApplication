@@ -87,8 +87,8 @@ public class UpdateReg extends AppCompatActivity {
 
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Удалить билет " + RegNum + " ?");
-        builder.setMessage("Вы действительно хотите удалить билет " + RegNum + " ?");
+        builder.setTitle("Удаление билета " + RegNum + " из базы данных");
+        builder.setMessage("Удалить билет " + RegNum + " ?");
         builder.setPositiveButton("Да", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
