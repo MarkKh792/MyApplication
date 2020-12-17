@@ -3,19 +3,30 @@ package com.example.dbpoezdov;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+
 public class UpdateCargo extends AppCompatActivity {
 
     EditText caTrain_input1, caMarshrut_input1, caDay_input1, caPribil_input1, caYedet_input1, cargo_input1, weight_input1, caPrice_input1, add_input1, addnt_input1;
     Button updateCargo_button, deleteCargo_button;
+
+    private EditText text1, text2, text3, text4, text5, text6, text7, text8;
 
     String IDCa, TrainCa, WayCa, DayCa, PribilCa, YedetCa, CargoCa, WeightCa, PriceCa, AddCa, AddntCa;
 
@@ -36,6 +47,17 @@ public class UpdateCargo extends AppCompatActivity {
         addnt_input1 = findViewById(R.id.addnt_input);
         updateCargo_button = findViewById(R.id.updateCargo_button);
         deleteCargo_button = findViewById(R.id.deleteCargo_button);
+
+        ActivityCompat.requestPermissions(UpdateCargo.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
+
+        text1 = findViewById(R.id.caTrain_input);
+        text2 = findViewById(R.id.caMarshrut_input);
+        text3 = findViewById(R.id.caDay_input);
+        text4 = findViewById(R.id.caPribil_input);
+        text5 = findViewById(R.id.caYedet_input);
+        text6 = findViewById(R.id.cargo_input);
+        text7 = findViewById(R.id.weight_input);
+        text8 = findViewById(R.id.caPrice_input);
 
         //First we call this
         getAndSetIntentData();
@@ -107,6 +129,51 @@ public class UpdateCargo extends AppCompatActivity {
         }else{
             Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void createMyPDF_Cargo(View view){
+
+        PdfDocument myPdfDocument = new PdfDocument();
+        PdfDocument.PageInfo myPageInfo = new PdfDocument.PageInfo.Builder(300,600,1).create();
+        PdfDocument.Page myPage = myPdfDocument.startPage(myPageInfo);
+
+        Paint myPaint = new Paint();
+        String myString = text1.getText().toString();
+        String myString2 = text2.getText().toString();
+        String myString3 = text3.getText().toString();
+        String myString4 = text4.getText().toString();
+        String myString5 = text5.getText().toString();
+        String myString6 = text6.getText().toString();
+        String myString7 = text7.getText().toString();
+        String myString8 = text8.getText().toString();
+
+        int x = 130, y=25;
+        for (String line:myString.split("\n")){
+            myPage.getCanvas().drawText(line, x, y, myPaint);
+            y+=myPaint.descent()-myPaint.ascent();
+        }
+        myPage.getCanvas().drawText("Маршрут: " + myString2,10,50,myPaint);
+        myPage.getCanvas().drawText("День: " + myString3,10,75,myPaint);
+        myPage.getCanvas().drawText("Время прибытия: " + myString4,10,95,myPaint);
+        myPage.getCanvas().drawText("Время отправления: " + myString5,10,115,myPaint);
+        myPage.getCanvas().drawText("Наименование груза: " + myString6,10,135,myPaint);
+        myPage.getCanvas().drawText("Масса груза: " + myString7,10,155,myPaint);
+        myPage.getCanvas().drawText("Ценность груза: " + myString8,10,175,myPaint);
+
+
+        myPdfDocument.finishPage(myPage);
+
+        String myFilePath = Environment.getExternalStorageDirectory().getPath() + "/Download/" + "РасписаниеГрузового.pdf";
+        File myFile = new File(myFilePath);
+        try {
+            myPdfDocument.writeTo(new FileOutputStream(myFile));
+            Toast.makeText(this, "Добавлено в PDF", Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception e){
+
+        }
+
+        myPdfDocument.close();
     }
 
     void confirmDialog(){

@@ -84,7 +84,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     COLWagon_classREG + " TEXT, " +
                     COLNtrain + " STRING," +//было TEXT
                     COLPreveligy +" TEXT, " +
-                    COLPriceREG +" INTEGER );";
+                    COLPriceREG +" STRING );";
             db.execSQL(query);
 
             String query1 = "CREATE TABLE " + TABLEOUT +
@@ -98,14 +98,14 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     COLWagClass + " TEXT, " +
                     COLNWag + " INTEGER, " +
                     COLSeat + " INTEGER, " +
-                    COLPriceOut + " INTEGER);";
+                    COLPriceOut + " STRING);";
             db.execSQL(query1);
 
             String query2 = "CREATE TABLE " + TABLECHED +
                     " (" + COL_ChID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COL_ChTrain + " STRING, " +
                     COL_ChWay + " STRING, " +
-                    COL_Chday + " INTEGER, " +
+                    COL_Chday + " STRING, " +
                     COL_ChPribil + " STRING, " +
                     COL_ChYedet + " STRING, " +
                     COL_ChPut + " INTEGER, " +
@@ -118,7 +118,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     " (" + COL_CaID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COL_CaTrain + " STRING, " +
                     COL_CaWay + " STRING, " +
-                    COL_CaDay + " INTEGER, " +
+                    COL_CaDay + " STRING, " +
                     COL_CaPribil + " STRING, " +
                     COL_CaYedet + " STRING, " +
                     COL_Cargo + " STRING, " +
@@ -173,13 +173,13 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put(COLNOutTicket, Ticket);
+
         cv.put(COLFname, name1);
         cv.put(COLLname, name2);
         cv.put(COLSname, name3);
         cv.put(COLNPass, Passp);
         cv.put(COLTraiN, Train);
-
+        cv.put(COLNOutTicket, Ticket);
         cv.put(COLWagClass, Class);
         cv.put(COLNWag, NumWag);
         cv.put(COLSeat, OutSeat);
@@ -301,16 +301,16 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    void updateOutData(String OutRow_id, String Ticket, String name1, String name2, String name3, String Passp, String Train, String Class, String NumWag, String OutSeat, String OutPrice){
+    void updateOutData(String OutRow_id, String name1, String name2, String name3, String Passp, String Train, String Ticket, String Class, String NumWag, String OutSeat, String OutPrice){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLNOutTicket, Ticket);
+
         cv.put(COLFname, name1);
         cv.put(COLLname, name2);
         cv.put(COLSname, name3);
         cv.put(COLNPass, Passp);
         cv.put(COLTraiN, Train);
-
+        cv.put(COLNOutTicket, Ticket);
         cv.put(COLWagClass, Class);
         cv.put(COLNWag, NumWag);
         cv.put(COLSeat, OutSeat);

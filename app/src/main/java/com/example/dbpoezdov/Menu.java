@@ -21,8 +21,4 @@ public class Menu extends AppCompatActivity {
         Intent intent = new Intent(Menu.this, NewInsideTicket.class);
         startActivity(intent);
     }
-    public void ShowTickets(View view){
-        Intent intent = new Intent(Menu.this, AllTickets.class);
-        startActivity(intent);
-    }
 }

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
@@ -37,16 +38,11 @@ public class Chedule extends AppCompatActivity {
     RecyclerView recyclerViewChed;
     //TextView header4;
     MyDatabaseHelper myDB;
-    TextView ChDay_txt, ChTrain_txt1, ChMarshrut_txt1, ChPribil_txt1, ChYedet_txt1, ChWay_txt1, ChPlatform_txt1;
+    //TextView ChDay_txt, ChTrain_txt1, ChMarshrut_txt1, ChPribil_txt1, ChYedet_txt1, ChWay_txt1, ChPlatform_txt1;
 
-    ArrayList<String> ChID, ChTrain, ChMarshrut, ChDay, ChPribil, ChYedet, ChWay, ChPlatform;
+    ArrayList<String> ChID, ChTrain, ChMarshrut, ChDay1, ChPribil, ChYedet, ChWay, ChPlatform;
 
     CustomAdapter4 customAdapter4;
-    private int mYear;
-    private int mMonth;
-    private int mDay;
-    EditText Day;
-    int IDay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,29 +53,10 @@ public class Chedule extends AppCompatActivity {
 
 
 
-        CalendarView calendarView = findViewById(R.id.calendarView);
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView View, int year, int month, int dayOfMonth) {
-                mYear = year;
-                mMonth = month;
-                mDay = dayOfMonth;
-                String selectedDate = new StringBuilder().append(mMonth + 1)
-                        .append("-").append(mDay).append("-").append(mYear)
-                        .append(" ").toString();
-                Toast.makeText(getApplicationContext(), selectedDate, Toast.LENGTH_LONG).show();
-
-            }
-        });
-
-
-
-
         myDB = new MyDatabaseHelper(Chedule.this);
         ChID = new ArrayList<>();
         ChTrain = new ArrayList<>();
-        //ChDay = new ArrayList<>();
+        ChDay1 = new ArrayList<>();
         ChMarshrut = new ArrayList<>();
         ChPribil = new ArrayList<>();
         ChYedet = new ArrayList<>();
@@ -96,7 +73,7 @@ public class Chedule extends AppCompatActivity {
 
         storeDataInArrays();
 
-        customAdapter4 = new CustomAdapter4(Chedule.this,this, ChID, ChTrain, ChMarshrut, ChPribil, ChYedet, ChWay, ChPlatform);
+        customAdapter4 = new CustomAdapter4(Chedule.this,this, ChID, ChTrain, ChMarshrut, ChDay1, ChPribil, ChYedet, ChWay, ChPlatform);
         recyclerViewChed.setAdapter(customAdapter4);
         recyclerViewChed.setLayoutManager(new LinearLayoutManager(Chedule.this));
     }
@@ -110,15 +87,19 @@ public class Chedule extends AppCompatActivity {
                 ChID.add(cursor.getString(0));
                 ChTrain.add(cursor.getString(1));
                 ChMarshrut.add(cursor.getString(2));
-                ChPribil.add(cursor.getString(3));
-                ChYedet.add(cursor.getString(4));
-                ChWay.add(cursor.getString(5));
-                ChPlatform.add(cursor.getString(6));
+                ChDay1.add(cursor.getString(3));
+                ChPribil.add(cursor.getString(4));
+                ChYedet.add(cursor.getString(5));
+                ChWay.add(cursor.getString(6));
+                ChPlatform.add(cursor.getString(7));
             }
             //header4.setVisibility(View.GONE);
         }
     }
-
+    public void goBack(View view) {
+        Intent intent = new Intent(Chedule.this, MainActivity.class);
+        startActivity(intent);
+    }
 
 
 }

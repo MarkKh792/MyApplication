@@ -20,7 +20,7 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyViewHo
 
     private Context context;
     private Activity activity;
-    private ArrayList  OutID, NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut;
+    private ArrayList  OutID,  Fname, Lname, Sname, NPass, TraiN, NOutTicket, WagClass, NWag, Seat, PriceOut;
 
     CustomAdapter1(Activity activity, Context context, ArrayList OutID, ArrayList NOutTicket, ArrayList Fname, ArrayList Lname, ArrayList Sname, ArrayList NPass, ArrayList TraiN, ArrayList WagClass, ArrayList NWag, ArrayList Seat, ArrayList PriceOut){
         this.activity = activity;
@@ -50,12 +50,13 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         holder.OutID_txt.setText(String.valueOf(OutID.get(position)));
-        holder.text_NOutTicket.setText(String.valueOf(NOutTicket.get(position)));
+
         holder.text_Fname.setText(String.valueOf(Fname.get(position)));
         holder.text_Lname.setText(String.valueOf(Lname.get(position)));
         holder.text_Sname.setText(String.valueOf(Sname.get(position)));
         holder.text_NPass.setText(String.valueOf(NPass.get(position)));
         holder.text_TraiN.setText(String.valueOf(TraiN.get(position)));
+        holder.text_NOutTicket.setText(String.valueOf(NOutTicket.get(position)));
         holder.text_WagClass.setText(String.valueOf(WagClass.get(position)));
         holder.text_NWag.setText(String.valueOf(NWag.get(position)));
         holder.text_Seat.setText(String.valueOf(Seat.get(position)));
@@ -66,12 +67,13 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyViewHo
             public void onClick(View view) {
                 Intent intent = new Intent(context, UpdateOut.class);
                 intent.putExtra("IDOut", String.valueOf(OutID.get(position)));
-                intent.putExtra("Ticket", String.valueOf(NOutTicket.get(position)));
+
                 intent.putExtra("name1", String.valueOf(Fname.get(position)));
                 intent.putExtra("name2", String.valueOf(Lname.get(position)));
                 intent.putExtra("name3", String.valueOf(Sname.get(position)));
                 intent.putExtra("Passp", String.valueOf(NPass.get(position)));
                 intent.putExtra("Train", String.valueOf(TraiN.get(position)));
+                intent.putExtra("Ticket", String.valueOf(NOutTicket.get(position)));
                 intent.putExtra("Class", String.valueOf(WagClass.get(position)));
                 intent.putExtra("NumWag", String.valueOf(NWag.get(position)));
                 intent.putExtra("OutSeat", String.valueOf(Seat.get(position)));
@@ -89,18 +91,31 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyViewHo
     }
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView OutID_txt, text_NOutTicket, text_Fname, text_Lname, text_Sname, text_NPass, text_TraiN, text_WagClass, text_NWag, text_Seat, text_PriceOut;
+        TextView OutID_txt,  text_Fname, text_Lname, text_Sname, text_NPass, text_TraiN, text_NOutTicket, text_WagClass, text_NWag, text_Seat, text_PriceOut;
         LinearLayout mainLayout;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            OutID_txt = itemView.findViewById(R.id.OutID_txt);
+           /* OutID_txt = itemView.findViewById(R.id.OutID_txt);
             text_NOutTicket = itemView.findViewById(R.id.text_NOutTicket);
             text_Fname = itemView.findViewById(R.id.text_Fname);
             text_Lname = itemView.findViewById(R.id.text_Lname);
             text_Sname = itemView.findViewById(R.id.text_Sname);
             text_NPass = itemView.findViewById(R.id.text_NPass);
             text_TraiN = itemView.findViewById(R.id.text_TraiN);
+            text_WagClass = itemView.findViewById(R.id.text_WagClass);
+            text_NWag = itemView.findViewById(R.id.text_NWag);
+            text_Seat = itemView.findViewById(R.id.text_Seat);
+            text_PriceOut = itemView.findViewById(R.id.text_PriceOut);
+            mainLayout = itemView.findViewById(R.id.mainLayout);*/
+
+            OutID_txt = itemView.findViewById(R.id.OutID_txt);
+            text_Fname = itemView.findViewById(R.id.text_Fname);
+            text_Lname = itemView.findViewById(R.id.text_Lname);
+            text_Sname = itemView.findViewById(R.id.text_Sname);
+            text_NPass = itemView.findViewById(R.id.text_NPass);
+            text_TraiN = itemView.findViewById(R.id.text_TraiN);
+            text_NOutTicket = itemView.findViewById(R.id.text_NOutTicket);
             text_WagClass = itemView.findViewById(R.id.text_WagClass);
             text_NWag = itemView.findViewById(R.id.text_NWag);
             text_Seat = itemView.findViewById(R.id.text_Seat);

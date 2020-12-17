@@ -26,7 +26,7 @@ public class ViewTickets2 extends AppCompatActivity {
     TextView header2;
     MyDatabaseHelper myDB;
 
-    ArrayList<String> OutID, NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut;
+    ArrayList<String> OutID,  Fname, Lname, Sname, NPass, TraiN, NOutTicket, WagClass, NWag, Seat, PriceOut;
 
     CustomAdapter1 customAdapter1;
 
@@ -40,12 +40,13 @@ public class ViewTickets2 extends AppCompatActivity {
 
         myDB = new MyDatabaseHelper(ViewTickets2.this);
         OutID = new ArrayList<>();
-        NOutTicket = new ArrayList<>();
+
         Fname = new ArrayList<>();
         Lname = new ArrayList<>();
         Sname = new ArrayList<>();
         NPass = new ArrayList<>();
         TraiN = new ArrayList<>();
+        NOutTicket = new ArrayList<>();
         WagClass = new ArrayList<>();
         NWag = new ArrayList<>();
         Seat = new ArrayList<>();
@@ -53,7 +54,7 @@ public class ViewTickets2 extends AppCompatActivity {
 
         storeDataInArrays();
 
-        customAdapter1 = new CustomAdapter1(ViewTickets2.this,this, OutID, NOutTicket, Fname, Lname, Sname, NPass, TraiN, WagClass, NWag, Seat, PriceOut);
+        customAdapter1 = new CustomAdapter1(ViewTickets2.this,this, OutID,  Fname, Lname, Sname, NPass, TraiN, NOutTicket, WagClass, NWag, Seat, PriceOut);
         recyclerView1.setAdapter(customAdapter1);
         recyclerView1.setLayoutManager(new LinearLayoutManager(ViewTickets2.this));
 
@@ -66,12 +67,13 @@ public class ViewTickets2 extends AppCompatActivity {
         }else{
             while (cursor.moveToNext()){
                 OutID.add(cursor.getString(0));
-                NOutTicket.add(cursor.getString(1));
-                Fname.add(cursor.getString(2));
-                Lname.add(cursor.getString(3));
-                Sname.add(cursor.getString(4));
-                NPass.add(cursor.getString(5));
-                TraiN.add(cursor.getString(6));
+                //NOutTicket.add(cursor.getString(1));
+                Fname.add(cursor.getString(1));
+                Lname.add(cursor.getString(2));
+                Sname.add(cursor.getString(3));
+                NPass.add(cursor.getString(4));
+                TraiN.add(cursor.getString(5));
+                NOutTicket.add(cursor.getString(6));
                 WagClass.add(cursor.getString(7));
                 NWag.add(cursor.getString(8));
                 Seat.add(cursor.getString(9));

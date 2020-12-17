@@ -25,19 +25,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/UPPersonName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/person"
-                android:drawablePadding="10dp"
-                android:ems="10"
-                android:hint="@string/textView7"
-                android:inputType="textPersonName"
-                tools:layout_editor_absoluteX="101dp"
-                tools:layout_editor_absoluteY="65dp" />
-
-            <EditText
-                android:id="@+id/UPPersonName2"
+                android:id="@+id/UPPersonName3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -47,10 +35,23 @@
                 android:hint="@string/textView10"
                 android:inputType="textPersonName"
                 tools:layout_editor_absoluteX="101dp"
+                tools:layout_editor_absoluteY="120dp" />
+
+            <EditText
+                android:id="@+id/UPPersonName2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/person"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="@string/textView7"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="101dp"
                 tools:layout_editor_absoluteY="10dp" />
 
             <EditText
-                android:id="@+id/UPPersonName3"
+                android:id="@+id/UPPassport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -60,10 +61,10 @@
                 android:hint="@string/textView11"
                 android:inputType="textPersonName"
                 tools:layout_editor_absoluteX="101dp"
-                tools:layout_editor_absoluteY="120dp" />
+                tools:layout_editor_absoluteY="175dp" />
 
             <EditText
-                android:id="@+id/UPPassport"
+                android:id="@+id/UPTrainOutside"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -73,10 +74,10 @@
                 android:hint="@string/textView13"
                 android:inputType="textPersonName"
                 tools:layout_editor_absoluteX="101dp"
-                tools:layout_editor_absoluteY="175dp" />
+                tools:layout_editor_absoluteY="230dp" />
 
             <EditText
-                android:id="@+id/UPTrainOutside"
+                android:id="@+id/UPTicketOutside"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -86,20 +87,19 @@
                 android:hint="@string/textView9"
                 android:inputType="textPersonName"
                 tools:layout_editor_absoluteX="101dp"
-                tools:layout_editor_absoluteY="230dp" />
+                tools:layout_editor_absoluteY="285dp" />
 
             <EditText
-                android:id="@+id/UPTicketOutside"
+                android:id="@+id/UPPersonName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:drawableStart="@drawable/ticket"
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="@string/textView"
                 android:inputType="textPersonName"
                 tools:layout_editor_absoluteX="101dp"
-                tools:layout_editor_absoluteY="285dp" />
+                tools:layout_editor_absoluteY="65dp" />
 
             <EditText
                 android:id="@+id/UPWagonClass"

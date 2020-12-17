@@ -20,13 +20,14 @@ public class CustomAdapter4 extends RecyclerView.Adapter<CustomAdapter4.MyViewHo
 
     private Context context;
     private Activity activity;
-    private ArrayList ChID, ChTrain, ChMarshrut, ChPribil, ChYedet, ChWay, ChPlatform;
+    private ArrayList ChID, ChTrain, ChMarshrut, ChDay1, ChPribil, ChYedet, ChWay, ChPlatform;
 
-    CustomAdapter4(Activity activity, Context context, ArrayList ChID, ArrayList ChTrain, ArrayList ChMarshrut,
+    CustomAdapter4(Activity activity, Context context, ArrayList ChID, ArrayList ChTrain, ArrayList ChMarshrut, ArrayList ChDay1,
                       ArrayList ChPribil, ArrayList ChYedet, ArrayList ChWay, ArrayList ChPlatform) {
         this.activity = activity;
         this.context = context;
         this.ChID = ChID;
+        this.ChDay1 = ChDay1;
         this.ChTrain = ChTrain;
         this.ChMarshrut = ChMarshrut;
         this.ChPribil = ChPribil;
@@ -49,6 +50,7 @@ public class CustomAdapter4 extends RecyclerView.Adapter<CustomAdapter4.MyViewHo
         holder.ChID_txt1.setText(String.valueOf(ChID.get(position)));
         holder.ChTrain_txt1.setText(String.valueOf(ChTrain.get(position)));
         holder.ChMarshrut_txt1.setText(String.valueOf(ChMarshrut.get(position)));
+        holder.ChDay_txt1.setText(String.valueOf(ChDay1.get(position)));
         holder.ChPribil_txt1.setText(String.valueOf(ChPribil.get(position)));
         holder.ChYedet_txt1.setText(String.valueOf(ChYedet.get(position)));
         holder.ChWay_txt1.setText(String.valueOf(ChWay.get(position)));
@@ -61,7 +63,7 @@ public class CustomAdapter4 extends RecyclerView.Adapter<CustomAdapter4.MyViewHo
     }
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView ChID_txt1, ChTrain_txt1, ChMarshrut_txt1, ChPribil_txt1, ChYedet_txt1, ChWay_txt1, ChPlatform_txt1;
+        TextView ChID_txt1, ChTrain_txt1, ChMarshrut_txt1, ChDay_txt1, ChPribil_txt1, ChYedet_txt1, ChWay_txt1, ChPlatform_txt1;
         LinearLayout mainLayout;
 
         MyViewHolder(@NonNull View itemView) {
@@ -69,6 +71,7 @@ public class CustomAdapter4 extends RecyclerView.Adapter<CustomAdapter4.MyViewHo
             ChID_txt1= itemView.findViewById(R.id.ChID_txt1);
             ChTrain_txt1 = itemView.findViewById(R.id.ChTrain_txt1);
             ChMarshrut_txt1 = itemView.findViewById(R.id.ChMarshrut_txt1);
+            ChDay_txt1 = itemView.findViewById(R.id.ChDay_txt1);
             ChPribil_txt1 = itemView.findViewById(R.id.ChPribil_txt1);
             ChYedet_txt1 = itemView.findViewById(R.id.ChYedet_txt1);
             ChWay_txt1 = itemView.findViewById(R.id.ChWay_txt1);

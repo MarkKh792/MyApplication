@@ -3,7 +3,7 @@
     <string name="button2">Добавить в БД</string>
     <string name="button3">Удалить</string>
     <string name="button5">Войти</string>
-    <string name="button6">Посмотреть расписание</string>
+    <string name="button6">РАСПИСАНИЕ</string>
     <string name="update">Обновить</string>
     <string name="delete">Удалить</string>
     //календарь
@@ -55,7 +55,7 @@
     <string name="textView7">Имя</string>
     <string name="textView10">Фамилия</string>
     <string name="textView11">Отчество</string>
-    <string name="textView13">Паспорт</string>
+    <string name="textView13">Номер паспорта</string>
     <string name="textView9">Номер поезда</string>
     <string name="textView12">Класс вагона</string>
     <string name="textView14">Вагон</string>

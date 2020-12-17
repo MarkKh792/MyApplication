@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/ChTextTrain"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
@@ -24,14 +24,14 @@
 
     <EditText
         android:id="@+id/ChTextMarshrut"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/marshrut"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Маршрут"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,30 +40,30 @@
 
     <EditText
         android:id="@+id/ChTextYedet"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/time"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Время отправления"
-        android:inputType="textPersonName"
+        android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ChTextPribil" />
 
     <EditText
         android:id="@+id/ChTextPlatform"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/platform"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Номер платформы"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,23 +72,23 @@
 
     <EditText
         android:id="@+id/ChTextPribil"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/time"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Время прибытия"
-        android:inputType="textPersonName"
+        android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ChTextDay" />
 
     <Button
         android:id="@+id/addCh"
-        android:layout_width="220dp"
+        android:layout_width="300dp"
         android:layout_height="49dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="10dp"
@@ -104,14 +104,14 @@
 
     <EditText
         android:id="@+id/ChTextVagonov"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/amount"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Число вагонов"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,14 +120,14 @@
 
     <EditText
         android:id="@+id/ChTextMest"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/seat"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Количество мест"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
@@ -136,14 +136,14 @@
 
     <EditText
         android:id="@+id/ChTextWay"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/nomer_puti"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Номер пути"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
@@ -152,7 +152,7 @@
 
     <Button
         android:id="@+id/button_ViewCh"
-        android:layout_width="220dp"
+        android:layout_width="300dp"
         android:layout_height="49dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="23dp"
@@ -169,14 +169,14 @@
 
     <EditText
         android:id="@+id/ChTextDay"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/ic_baseline_today_24"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="День прибытия"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"

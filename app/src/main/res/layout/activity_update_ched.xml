@@ -62,7 +62,7 @@
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Время прибытия"
-                android:inputType="textPersonName" />
+                android:inputType="time" />
 
             <EditText
                 android:id="@+id/ChYedet_input"
@@ -73,7 +73,7 @@
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Время отправления"
-                android:inputType="textPersonName" />
+                android:inputType="time" />
 
             <EditText
                 android:id="@+id/ChWay_input"

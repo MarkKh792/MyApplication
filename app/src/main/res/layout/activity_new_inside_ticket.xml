@@ -8,14 +8,14 @@
 
     <EditText
         android:id="@+id/RegID_input"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/ticket"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Номер билета"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/classREG_input"
@@ -25,14 +25,14 @@
 
     <EditText
         android:id="@+id/classREG_input"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/vag_class"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Класс вагона"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,14 +41,14 @@
 
     <EditText
         android:id="@+id/PreveligyREG_input"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/train_numb"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Номер поезда"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,14 +57,14 @@
 
     <EditText
         android:id="@+id/REGPrice_input"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/price"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Стоимость"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +73,7 @@
 
     <Button
         android:id="@+id/add_button"
-        android:layout_width="219dp"
+        android:layout_width="300dp"
         android:layout_height="49dp"
         android:layout_marginStart="161dp"
         android:layout_marginEnd="162dp"
@@ -82,12 +82,11 @@
         android:text="@string/add_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/View_button1"
-        android:layout_width="219dp"
+        android:layout_width="300dp"
         android:layout_height="49dp"
         android:layout_marginStart="161dp"
         android:layout_marginTop="67dp"
@@ -98,20 +97,19 @@
         android:text="@string/View_Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_button" />
 
     <EditText
         android:id="@+id/Prev_input"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
         android:drawableStart="@drawable/preveligy"
         android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Льгота"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
