@@ -23,12 +23,12 @@ import java.io.FileOutputStream;
 
 public class UpdateCargo extends AppCompatActivity {
 
-    EditText caTrain_input1, caMarshrut_input1, caDay_input1, caPribil_input1, caYedet_input1, cargo_input1, weight_input1, caPrice_input1, add_input1, addnt_input1;
+    EditText caTrain_input1, caMarshrut_input1, caDay_input1, caPribil_input1, caYedet_input1, cargo_input1, weight_input1, caPrice_input1, caVagonov_input1, add_input1, addnt_input1;
     Button updateCargo_button, deleteCargo_button;
 
-    private EditText text1, text2, text3, text4, text5, text6, text7, text8;
+    private EditText text1, text2, text3, text4, text5, text6, text7, text8, text9;
 
-    String IDCa, TrainCa, WayCa, DayCa, PribilCa, YedetCa, CargoCa, WeightCa, PriceCa, AddCa, AddntCa;
+    String IDCa, TrainCa, WayCa, DayCa, PribilCa, YedetCa, CargoCa, WeightCa, PriceCa, VagonovCa, AddCa, AddntCa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class UpdateCargo extends AppCompatActivity {
         cargo_input1 = findViewById(R.id.cargo_input);
         weight_input1 = findViewById(R.id.weight_input);
         caPrice_input1 = findViewById(R.id.caPrice_input);
+        caVagonov_input1 = findViewById(R.id.caVagonov_input);
         add_input1 = findViewById(R.id.add_input);
         addnt_input1 = findViewById(R.id.addnt_input);
         updateCargo_button = findViewById(R.id.updateCargo_button);
@@ -58,6 +59,7 @@ public class UpdateCargo extends AppCompatActivity {
         text6 = findViewById(R.id.cargo_input);
         text7 = findViewById(R.id.weight_input);
         text8 = findViewById(R.id.caPrice_input);
+        text9 = findViewById(R.id.caVagonov_input);
 
         //First we call this
         getAndSetIntentData();
@@ -81,9 +83,10 @@ public class UpdateCargo extends AppCompatActivity {
                 CargoCa = cargo_input1.getText().toString().trim();
                 WeightCa = weight_input1.getText().toString().trim();
                 PriceCa = caPrice_input1.getText().toString().trim();
+                VagonovCa = caVagonov_input1.getText().toString().trim();
                 AddCa = add_input1.getText().toString().trim();
                 AddntCa = addnt_input1.getText().toString().trim();
-                myDB.updateCargoData(IDCa, TrainCa, WayCa, DayCa, PribilCa, YedetCa, CargoCa, WeightCa, PriceCa, AddCa, AddntCa);
+                myDB.updateCargoData(IDCa, TrainCa, WayCa, DayCa, PribilCa, YedetCa, CargoCa, WeightCa, PriceCa, VagonovCa, AddCa, AddntCa);
             }
         });
         deleteCargo_button.setOnClickListener(new View.OnClickListener() {
@@ -100,7 +103,7 @@ public class UpdateCargo extends AppCompatActivity {
                 getIntent().hasExtra("DayCa") && getIntent().hasExtra("PribilCa")&&
                 getIntent().hasExtra("YedetCa")&& getIntent().hasExtra("CargoCa")&&
                 getIntent().hasExtra("WeightCa")&& getIntent().hasExtra("PriceCa")&&
-                getIntent().hasExtra("AddCa")&& getIntent().hasExtra("AddntCa")){
+                getIntent().hasExtra("VagonovCa")&& getIntent().hasExtra("AddCa")&& getIntent().hasExtra("AddntCa")){
             //Getting Data from Intent
             IDCa = getIntent().getStringExtra("IDCa");
             TrainCa = getIntent().getStringExtra("TrainCa");
@@ -111,6 +114,7 @@ public class UpdateCargo extends AppCompatActivity {
             CargoCa = getIntent().getStringExtra("CargoCa");
             WeightCa = getIntent().getStringExtra("WeightCa");
             PriceCa = getIntent().getStringExtra("PriceCa");
+            VagonovCa = getIntent().getStringExtra("VagonovCa");
             AddCa = getIntent().getStringExtra("AddCa");
             AddntCa = getIntent().getStringExtra("AddntCa");
 
@@ -123,9 +127,10 @@ public class UpdateCargo extends AppCompatActivity {
             cargo_input1.setText(CargoCa);
             weight_input1.setText(WeightCa);
             caPrice_input1.setText(PriceCa);
+            caVagonov_input1.setText(VagonovCa);
             add_input1.setText(AddCa);
             addnt_input1.setText(AddntCa);
-            Log.d("stev", TrainCa+" "+WayCa+" "+DayCa+" "+PribilCa+" "+YedetCa+" "+CargoCa+" "+WeightCa+" "+PriceCa+" "+AddCa+" "+AddntCa);
+            Log.d("stev", TrainCa+" "+WayCa+" "+DayCa+" "+PribilCa+" "+YedetCa+" "+CargoCa+" "+WeightCa+" "+PriceCa+" "+VagonovCa+" "+AddCa+" "+AddntCa);
         }else{
             Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
         }
@@ -146,6 +151,7 @@ public class UpdateCargo extends AppCompatActivity {
         String myString6 = text6.getText().toString();
         String myString7 = text7.getText().toString();
         String myString8 = text8.getText().toString();
+        String myString9 = text9.getText().toString();
 
         int x = 130, y=25;
         for (String line:myString.split("\n")){
@@ -159,6 +165,7 @@ public class UpdateCargo extends AppCompatActivity {
         myPage.getCanvas().drawText("Наименование груза: " + myString6,10,135,myPaint);
         myPage.getCanvas().drawText("Масса груза: " + myString7,10,155,myPaint);
         myPage.getCanvas().drawText("Ценность груза: " + myString8,10,175,myPaint);
+        myPage.getCanvas().drawText("Вагонов: " + myString9,10,195,myPaint);
 
 
         myPdfDocument.finishPage(myPage);

@@ -20,10 +20,10 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
 
     private Context context;
     private Activity activity;
-    private ArrayList caID, caTrain, caMarshrut, caDay, caPribil, caYedet, cargo, weight, caPrice, add, addnt;
+    private ArrayList caID, caTrain, caMarshrut, caDay, caPribil, caYedet, cargo, weight, caPrice, caVagonov, add, addnt;
 
     CustomAdapter2(Activity activity, Context context, ArrayList caID, ArrayList caTrain, ArrayList caMarshrut, ArrayList caDay, ArrayList caPribil, ArrayList caYedet,
-    ArrayList cargo, ArrayList weight, ArrayList caPrice, ArrayList add, ArrayList addnt){
+    ArrayList cargo, ArrayList weight, ArrayList caPrice, ArrayList caVagonov, ArrayList add, ArrayList addnt){
         this.activity = activity;
         this.context = context;
         this.caID = caID;
@@ -35,6 +35,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
         this.cargo = cargo;
         this.weight = weight;
         this.caPrice = caPrice;
+        this.caVagonov = caVagonov;
         this.add = add;
         this.addnt = addnt;
     }
@@ -59,6 +60,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
         holder.Cargo_txt.setText(String.valueOf(cargo.get(position)));
         holder.CaWeight_txt.setText(String.valueOf(weight.get(position)));
         holder.CaPrice_txt.setText(String.valueOf(caPrice.get(position)));
+        holder.CaVagonov_txt.setText(String.valueOf(caVagonov.get(position)));
         holder.CaAdd_txt.setText(String.valueOf(add.get(position)));
         holder.CaAddnt_txt.setText(String.valueOf(addnt.get(position)));
         //Recyclerview onClickListener
@@ -75,6 +77,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
                 intent.putExtra("CargoCa", String.valueOf(cargo.get(position)));
                 intent.putExtra("WeightCa", String.valueOf(weight.get(position)));
                 intent.putExtra("PriceCa", String.valueOf(caPrice.get(position)));
+                intent.putExtra("VagonovCa", String.valueOf(caVagonov.get(position)));
                 intent.putExtra("AddCa", String.valueOf(add.get(position)));
                 intent.putExtra("AddntCa", String.valueOf(addnt.get(position)));
                 activity.startActivityForResult(intent, 1);
@@ -90,7 +93,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
     }
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView CaID_txt, CaTrain_txt, CaMarshrut_txt, CaDay_txt, CaPribil_txt, CaYedet_txt, Cargo_txt, CaWeight_txt, CaPrice_txt, CaAdd_txt, CaAddnt_txt;
+        TextView CaID_txt, CaTrain_txt, CaMarshrut_txt, CaDay_txt, CaPribil_txt, CaYedet_txt, Cargo_txt, CaWeight_txt, CaPrice_txt, CaVagonov_txt, CaAdd_txt, CaAddnt_txt;
         LinearLayout mainLayout;
 
         MyViewHolder(@NonNull View itemView) {
@@ -104,6 +107,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
             Cargo_txt = itemView.findViewById(R.id.Cargo_txt);
             CaWeight_txt = itemView.findViewById(R.id.CaWeight_txt);
             CaPrice_txt = itemView.findViewById(R.id.CaPrice_txt);
+            CaVagonov_txt = itemView.findViewById(R.id.CaVagonov_txt);
             CaAdd_txt = itemView.findViewById(R.id.CaAdd_txt);
             CaAddnt_txt = itemView.findViewById(R.id.CaAddnt_txt);
             mainLayout = itemView.findViewById(R.id.mainLayout);

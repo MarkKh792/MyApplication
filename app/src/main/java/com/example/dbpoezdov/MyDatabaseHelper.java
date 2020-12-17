@@ -67,6 +67,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_Cargo = "Cargo";
     private static final String COL_Weight = "Weight";
     private static final String COL_Price = "Price";
+    private static final String COL_Vagonov = "Vagonov";
     private static final String COL_Add = "Dobavleno";
     private static final String COL_Addnt = "Ybrano";
 
@@ -124,6 +125,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     COL_Cargo + " STRING, " +
                     COL_Weight + " INTEGER, " +
                     COL_Price + " INTEGER, " +
+                    COL_Vagonov + " INTEGER, " +
                     COL_Add + " INTEGER, " +
                     COL_Addnt + " INTEGER);";
             db.execSQL(query3);
@@ -216,7 +218,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    void addCargoinfo(String TrainCa, String WayCa, int DayCa, String PribilCa, String YedetCa, String CargoCa, int WeightCa,  int PriceCa, int AddCa, int AddntCa){
+    void addCargoinfo(String TrainCa, String WayCa, int DayCa, String PribilCa, String YedetCa, String CargoCa, int WeightCa,  int PriceCa, int VagonovCa, int AddCa, int AddntCa){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -228,6 +230,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COL_Cargo, CargoCa);
         cv.put(COL_Weight, WeightCa);
         cv.put(COL_Price, PriceCa);
+        cv.put(COL_Vagonov, VagonovCa);
         cv.put(COL_Add, AddCa);
         cv.put(COL_Addnt, AddntCa);
         long result = db.insert(TABLECARG,null, cv);
@@ -348,7 +351,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    void updateCargoData(String CargoRow_id, String TrainCa, String WayCa, String DayCa, String PribilCa, String YedetCa, String CargoCa, String WeightCa, String PriceCa, String AddCa, String AddntCa){
+    void updateCargoData(String CargoRow_id, String TrainCa, String WayCa, String DayCa, String PribilCa, String YedetCa, String CargoCa, String WeightCa, String PriceCa, String VagonovCa, String AddCa, String AddntCa){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_CaTrain, TrainCa);
@@ -360,6 +363,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
         cv.put(COL_Weight, WeightCa);
         cv.put(COL_Price, PriceCa);
+        cv.put(COL_Vagonov, VagonovCa);
         cv.put(COL_Add, AddCa);
         cv.put(COL_Addnt, AddntCa);
 

@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class AddCargoTrains extends AppCompatActivity {
-    EditText CaTrain, CaMarshrut, CaDay, CaPribil, CaYedet, Cargo, Weight, CaPrice, Add, Addnt;
+    EditText CaTrain, CaMarshrut, CaDay, CaPribil, CaYedet, Cargo, Weight, CaPrice, CaVagonov, Add, Addnt;
     Button add_CaTrain;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class AddCargoTrains extends AppCompatActivity {
         Cargo = findViewById(R.id.Cargo);
         Weight = findViewById(R.id.Weight);
         CaPrice = findViewById(R.id.CaPrice);
+        CaVagonov = findViewById(R.id.VagonovNcargo);
         Add = findViewById(R.id.Add);
         Addnt = findViewById(R.id.Addnt);
         add_CaTrain = findViewById(R.id.add_CaTrain);
@@ -39,6 +40,7 @@ public class AddCargoTrains extends AppCompatActivity {
                         Cargo.getText().toString().trim(),
                         Integer.valueOf(Weight.getText().toString().trim()),
                         Integer.valueOf(CaPrice.getText().toString().trim()),
+                        Integer.valueOf(CaVagonov.getText().toString().trim()),
                         Integer.valueOf(Add.getText().toString().trim()),
                         Integer.valueOf(Addnt.getText().toString().trim()));
             }

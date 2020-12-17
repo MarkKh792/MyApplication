@@ -26,7 +26,7 @@ public class ViewCargo3 extends AppCompatActivity {
     TextView header3;
     MyDatabaseHelper myDB;
 
-    ArrayList<String> caID, caTrain, caMarshrut, caDay, caPribil, caYedet, cargo, weight, caPrice, add, addnt;
+    ArrayList<String> caID, caTrain, caMarshrut, caDay, caPribil, caYedet, cargo, weight, caPrice, caVagonov, add, addnt;
 
     CustomAdapter2 customAdapter2;
 
@@ -48,12 +48,13 @@ public class ViewCargo3 extends AppCompatActivity {
         cargo = new ArrayList<>();
         weight = new ArrayList<>();
         caPrice = new ArrayList<>();
+        caVagonov = new ArrayList<>();
         add = new ArrayList<>();
         addnt = new ArrayList<>();
 
         storeDataInArrays();
 
-        customAdapter2 = new CustomAdapter2(ViewCargo3.this,this, caID, caTrain, caMarshrut, caDay, caPribil, caYedet, cargo, weight, caPrice, add, addnt);
+        customAdapter2 = new CustomAdapter2(ViewCargo3.this,this, caID, caTrain, caMarshrut, caDay, caPribil, caYedet, cargo, weight, caPrice, caVagonov, add, addnt);
         recyclerView3.setAdapter(customAdapter2);
         recyclerView3.setLayoutManager(new LinearLayoutManager(ViewCargo3.this));
 
@@ -74,8 +75,9 @@ public class ViewCargo3 extends AppCompatActivity {
                 cargo.add(cursor.getString(6));
                 weight.add(cursor.getString(7));
                 caPrice.add(cursor.getString(8));
-                add.add(cursor.getString(9));
-                addnt.add(cursor.getString(10));
+                caVagonov.add(cursor.getString(9));
+                add.add(cursor.getString(10));
+                addnt.add(cursor.getString(11));
             }
             header3.setVisibility(View.GONE);
         }
